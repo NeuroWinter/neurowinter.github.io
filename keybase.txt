@@ -1,0 +1,68 @@
+==================================================================
+https://keybase.io/neurowinter
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://neurowinter.com
+  * I am neurowinter (https://keybase.io/neurowinter) on keybase.
+  * I have a public key with fingerprint E728 FA25 B21A 550E 32F7  8093 30C8 3B98 41AD 0307
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01019a72e4cc5d97639487cb31a782b027f4206cb723d30eeabfaf04ce4eac93d06f0a",
+      "fingerprint": "e728fa25b21a550e32f7809330c83b9841ad0307",
+      "host": "keybase.io",
+      "key_id": "30c83b9841ad0307",
+      "kid": "01019a72e4cc5d97639487cb31a782b027f4206cb723d30eeabfaf04ce4eac93d06f0a",
+      "uid": "7068565661ac57b15c27c7c68d627f19",
+      "username": "neurowinter"
+    },
+    "service": {
+      "hostname": "neurowinter.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1621285335,
+  "expire_in": 157680000,
+  "prev": "349abc2072c17db544121f07d34e75a5fe4b93029cda8d7687a4ae243d5ad4ca",
+  "seqno": 34,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.1.13
+Comment: https://keybase.io/crypto
+
+yMInAnicrVJbSBVBGD6m3cy0J5Gwos1A6mizs5fZPQRdCcqiGxGadZydndXtsnva
+3WOWWGlJiBRdoQvYhS5yoKis3gSNEstE6V4vFZogapak3aNZqad6bF6Gmf/7vv/7
+P/474+MDiXEn+dNG2qqOY3EtjTXRQMG5F89KOc3Wt3OhUm4THb7oZp26XniTqXMh
+DvCAVzGCVCRE0lUkC6qoIKIJPEYK1ABEhgiBTDQEBV0AlGLNwAYQCRUpJqqgA9kA
+mAtyhmkVUifimJbHZCmCioGhpEEeSxKgAjSQAlRBAEQRNFUReawDASBGLLJdn8HM
+adil2abN/tgjPGzvH/j/7Ds6LIeArEiyJMs8JhLSeIlARBCRFV1mSrzqA13qWHgL
+ZWiLRh17G5uUOlxZkGOFYpNQP1t/mL9B2cTewhQiju3ZxN7MikWeF3FDPtnbHvHR
+26gW/q0T1kxLZ2kyRjF1XNO2uBDPkMQzfWFehjxUJEGQghwtiZgODZs+QkKyAtjx
++9BiPztRxRqBAEHCI12TRJGHvAGQLogUSVgyqKipAoAq0bGiMzbCIqZQFHQJ6yLx
+w3HpVsvmQoLIfOJCpumahRb2og7lym435CcE4hIDo0aO8NcskDh2wp/le3Vv9M/M
+xvKnLakbT1XOz3wYty/pSTjlSrMx7f31A0pnWdbuImT8aEtOOpZv3D964+tAzaP2
+HT8f7MiZOaNpaKHdc74md8PDE0uHag5e3N1zbdfe4NpYRyx6uPJbcd7j2jHmxzlz
+Y32zuitaylO6HidKFVN3LpgNs0NdzZe4Smdl2/KGc703awuy8pZEjqdUjb9vttZV
+xSadXZc+vTzampycM6Wyr27ywNvsxW53757B52/e3Vpf35BasIysybjbEOuNz6jv
+tHbmkur9TY/KcxP6Vr+4Nra/X0lb0T9vxVBRXcmnq+lnLnxOndJ6ekbww5FFE19W
+38y5nJY/2PkajTvU9MW7IXrtzvfaX3ZuTWY=
+=v+Ok
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/neurowinter
+
+==================================================================
