@@ -23,6 +23,7 @@ provider "aws" {
 
 module "acm_request_certificate" {
   source = "cloudposse/acm-request-certificate/aws"
+  # Documentation: https://github.com/cloudposse/terraform-aws-acm-request-certificate/blob/master/README.md
   providers = {
     aws = aws.us
   }
@@ -37,6 +38,7 @@ module "acm_request_certificate" {
 
 module "cdn" {
   source = "cloudposse/cloudfront-s3-cdn/aws"
+  # Documentation: https://github.com/cloudposse/terraform-aws-cloudfront-s3-cdn/blob/master/README.md
   # Cloud Posse recommends pinning every module to a specific version
   version = "0.74.3"
 
