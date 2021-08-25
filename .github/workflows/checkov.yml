@@ -14,4 +14,3 @@ jobs:
         with:
           directory: tf/
           download_external_modules: true
-          config_file: .github/workflows/checkov.yml
