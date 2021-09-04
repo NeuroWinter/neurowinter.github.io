@@ -42,12 +42,14 @@ module "cdn" {
   # Cloud Posse recommends pinning every module to a specific version
   version = "0.74.3"
 
-  namespace         = "NeuroWinter"
-  stage             = "prod"
-  name              = "personal-site"
-  aliases           = var.subdomains
-  dns_alias_enabled = true
-  parent_zone_name  = var.root_url
+  namespace                           = "NeuroWinter"
+  stage                               = "prod"
+  name                                = "personal-site"
+  aliases                             = var.subdomains
+  dns_alias_enabled                   = true
+  parent_zone_name                    = var.root_url
+  cloudfront_access_logging_enabled   = true
+  cloudfront_access_log_create_bucket = true
 
   deployment_principal_arns = {
     (var.deployment_user) = [""]
