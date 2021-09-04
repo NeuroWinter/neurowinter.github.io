@@ -39,3 +39,7 @@ jobs:
 
     - name: Build
       uses: jerryjvl/jekyll-build-action@v1
+
+    - name: Sync output to S3
+      run: |
+        aws s3 sync ./_site/ s3://neurowinter-prod-personal-site-origin --delete
