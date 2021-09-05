@@ -34,12 +34,17 @@ jobs:
         AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
   Jekyll:
+    needs: ['Terraform']
     name: Build and deploy Jekyll
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
       - name: Build
         uses: jerryjvl/jekyll-build-action@v1
 
+      - name: ls
+        run: ls -la
       - name: Sync output to S3
         run: |
-          AWS_EC2_METADATA_DISABLED=true AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }} AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}  aws s3 sync ./_site/ s3://neurowinter-prod-personal-site-origin --delete --debug
+          AWS_EC2_METADATA_DISABLED=true AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }} AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}  aws s3 sync ./_site/ s3://neurowinter-prod-personal-site-origin --delete
