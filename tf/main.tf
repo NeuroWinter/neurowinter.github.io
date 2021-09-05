@@ -2,7 +2,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 3.27"
+      version = "~> 3.57"
     }
   }
 
@@ -40,7 +40,7 @@ module "cdn" {
   source = "cloudposse/cloudfront-s3-cdn/aws"
   # Documentation: https://github.com/cloudposse/terraform-aws-cloudfront-s3-cdn/blob/master/README.md
   # Cloud Posse recommends pinning every module to a specific version
-  version = "0.74.3"
+  version = "0.75.0"
 
   namespace                           = "NeuroWinter"
   stage                               = "prod"
