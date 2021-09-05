@@ -42,7 +42,7 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v2
       - name: Build
-        uses: jerryjvl/jekyll-build-action@v1
+        uses: Ealenn/jekyll-build-action@v1
 
       - name: ls
         run: ls -la
