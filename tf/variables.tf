@@ -14,5 +14,5 @@ variable "subdomains" {
 variable "deployment_user" {
   type        = string
   description = "The user that you want to deploy the infrastructure."
-  default     = "arn:aws:iam::058786660650:user/personal_deployment"
+  default     = "arn:aws:iam::058786660650:user/TerafromPersonalAdmin"
 }

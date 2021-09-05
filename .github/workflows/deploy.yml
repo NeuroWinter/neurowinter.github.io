@@ -10,36 +10,36 @@ jobs:
     name: Terraform Plan & Apply
     runs-on: ubuntu-latest
     steps:
-
     - name: Checkout Repo
       uses: actions/checkout@v2
 
-    - name: Terraform Setup
-      uses: hashicorp/setup-terraform@v1
-      
     - name: Terraform Init
-      run: terraform init
+      run: cd tf && terraform init
       env:
-        TF_ACTION_WORKING_DIR: './tf/'
+        TF_ACTION_WORKING_DIR: './tf'
         AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         
     - name: Terraform validate
-      run: terraform validate
+      run: cd tf && terraform validate
       env:
-        TF_ACTION_WORKING_DIR: './tf/'
+        TF_ACTION_WORKING_DIR: './tf'
 
     - name: Terraform Apply
-      run: terraform apply -auto-approve
+      run: cd tf && terraform apply -auto-approve
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        TF_ACTION_WORKING_DIR: './tf/'
+        TF_ACTION_WORKING_DIR: './tf'
         AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
-    - name: Build
-      uses: jerryjvl/jekyll-build-action@v1
+  Jekyll:
+    name: Build and deploy Jekyll
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build
+        uses: jerryjvl/jekyll-build-action@v1
 
-    - name: Sync output to S3
-      run: |
-        aws s3 sync ./_site/ s3://neurowinter-prod-personal-site-origin --delete
+      - name: Sync output to S3
+        run: |
+          AWS_EC2_METADATA_DISABLED=true AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }} AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}  aws s3 sync ./_site/ s3://neurowinter-prod-personal-site-origin --delete --debug
