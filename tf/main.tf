@@ -1,4 +1,9 @@
 terraform {
+  backend "s3" {
+       bucket = "neurowinter-personal-infrastructure"
+       key    = "personal-site"
+       region = "us-east-1"
+     }
   required_providers {
     aws = {
       source  = "hashicorp/aws"
