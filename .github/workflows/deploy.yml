@@ -17,7 +17,7 @@ jobs:
 
     - name: show contents
       run: |
-        ls -la
+        ls -la tf/
 
     - name: Terraform Setup
       uses: hashicorp/setup-terraform@v1
