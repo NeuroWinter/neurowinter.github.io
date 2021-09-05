@@ -39,6 +39,8 @@ jobs:
     name: Build and deploy Jekyll
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
       - name: Build
         uses: jerryjvl/jekyll-build-action@v1
 
