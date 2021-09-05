@@ -14,3 +14,4 @@ jobs:
         uses: aquasecurity/tfsec-pr-commenter-action@v0.1.7
         with:
           github_token: ${{ github.token }}
+          INPUT_WORKING_DIRECTORY: "./tf"
