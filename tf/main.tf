@@ -58,7 +58,7 @@ module "cdn" {
   # There seems to be a weird issue here where if the acm has not been run by itself, you will
   # get some weird errors here regarding the zone_id. To fix these comment the below two lines
   # out and run terraform apply, then uncomment them and run apply again.
-  depends_on          = [module.acm_request_certificate]
-  acm_certificate_arn = module.acm_request_certificate.arn
+  # depends_on          = [module.acm_request_certificate]
+  # acm_certificate_arn = module.acm_request_certificate.arn
 
 }
