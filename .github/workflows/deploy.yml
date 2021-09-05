@@ -15,6 +15,10 @@ jobs:
     - name: Checkout Repo
       uses: actions/checkout@v2
 
+    - name: show contents
+      run: |
+        ls -la
+
     - name: Terraform Setup
       uses: hashicorp/setup-terraform@v1
       
