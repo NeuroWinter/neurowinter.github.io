@@ -21,20 +21,6 @@ provider "aws" {
   region  = "us-east-1"
 }
 
-module "acm_request_certificate" {
-  source = "cloudposse/acm-request-certificate/aws"
-  # Documentation: https://github.com/cloudposse/terraform-aws-acm-request-certificate/blob/master/README.md
-  providers = {
-    aws = aws.us
-  }
-  # Cloud Posse recommends pinning every module to a specific version
-  version = "0.15.0"
-
-  domain_name                       = var.root_url
-  subject_alternative_names         = var.subdomains
-  process_domain_validation_options = true
-  ttl                               = "300"
-}
 
 module "cdn" {
   source = "cloudposse/cloudfront-s3-cdn/aws"
@@ -58,7 +44,6 @@ module "cdn" {
   # There seems to be a weird issue here where if the acm has not been run by itself, you will
   # get some weird errors here regarding the zone_id. To fix these comment the below two lines
   # out and run terraform apply, then uncomment them and run apply again.
-  depends_on          = [module.acm_request_certificate]
-  acm_certificate_arn = module.acm_request_certificate.arn
+  # acm_certificate_arn = "arn:aws:acm:us-east-1:058786660650:certificate/ccff615f-d1aa-4e24-aa3b-11e28324dc49"
 
 }
