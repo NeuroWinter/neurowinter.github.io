@@ -1,7 +1,7 @@
 title: Alex Manson # name of the site
 author: Alex Manson # name of site's author
 email: dev@neurowinter.com # email of site's author
-baseurl:
+baseurl: /
 url: https://neurowinter.github.io/ # root address of the site
 description: > # description of the site (multiple lines allowed)
   Hacker, NLP enthusiast, ML/AI engineer
