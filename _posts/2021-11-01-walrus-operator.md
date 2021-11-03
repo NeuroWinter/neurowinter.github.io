@@ -11,10 +11,10 @@ while data := file.read(1024):
     process(data)
 ```
 
-In this example, each time the while loop is run data will be set to the output
-of `file.read(1024)` until there is no data left to read. Each loop it will run
+In this example, each time the while loop is run, data will be set to the output
+of `file.read(1024)` until there is no data left to read. Each loop will run
 the process function on each 1024 chunk of data. While this is a super simple
-example it it shows that you can assign the output of an expression
+example, it shows that you can assign the output of an expression
 `file.read(1024)` to a variable in the while expression.
 
 This Operator also allows a user to reuse an expression in the case of regex
@@ -27,8 +27,9 @@ if (match := pattern.search("This is just foobar")) is not None:
     print(match.group())
 ```
 
-As you can see here we are saving one line of code, by using the walrus operator.
-Since an alternative way of writing this is:
+We are saving one line of code by using the walrus operator, as you can see
+here. Since an alternative way of writing this is:
+
 
 ```python
 import re
@@ -38,7 +39,7 @@ if match is not None:
     print(match.group())
 ```
 
-Obviously in real world examples you would be doing more than just printing.
+Obviously, in real-world examples, you would be doing more than just printing.
 
 Links:
 https://www.python.org/dev/peps/pep-0572/
