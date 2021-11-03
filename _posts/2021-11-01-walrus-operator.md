@@ -3,7 +3,7 @@ layout: post
 category: python
 ---
 The Walrus operator `:=` goal is to allow a user to name variables and use them
-in expressions with ease. It takes the form of `NAME := expr` Below is an
+in expressions with ease. It takes the form of `NAME := expr`. Below is an
 example:
 
 ```python
@@ -12,7 +12,7 @@ while data := file.read(1024):
 ```
 
 In this example, each time the while loop is run data will be set to the output
-of file.read(1024) until there is no data left to read. Each loop it will run
+of `file.read(1024)` until there is no data left to read. Each loop it will run
 the process function on each 1024 chunk of data. While this is a super simple
 example it it shows that you can assign the output of an expression
 `file.read(1024)` to a variable in the while expression.
@@ -28,7 +28,7 @@ if (match := pattern.search("This is just foobar")) is not None:
 ```
 
 As you can see here we are saving one line of code, by using the walrus operator.
-Since you could do:
+Since an alternative way of writing this is:
 
 ```python
 import re

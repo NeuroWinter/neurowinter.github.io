@@ -1,0 +1,12 @@
+entries:
+  - title: info
+    entries:
+      - title: <a href='https://www.linkedin.com/in/alex-m-169726141'>LinkedIn</a>
+      - title: <a href='https://github.com/NeuroWinter'>GitHub</a>
+      - title: <a href='mailto:dev@neurowinter.com'>Email</a>
+      - title: <a href='https://bugcrowd.com/NeuroWinter'>BugCrowd</a>
+      - title: <a href='https://hackerone.com/neurowinter'>HackerOne</a>
+
+  - title: posts
+    post_list:
+      limit: 5
