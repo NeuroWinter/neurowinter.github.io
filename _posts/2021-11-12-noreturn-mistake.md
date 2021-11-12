@@ -2,6 +2,7 @@
 layout: post
 category: python
 title: "I have been using Python typing's 'NoReturn' wrong"
+description: A basic overview of my misunderstanding of Pythons NoReturn Type.
 ---
 I am a huge fan of python's new typing module which was introduced in version
 3.5. The addition of this module gives us a range of tools to help people read

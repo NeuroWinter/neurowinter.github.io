@@ -1,6 +1,8 @@
 ---
 layout: post
 category: python
+title: Python's Walrus Operator
+description: A quick look at Python's new Walrus Operator.
 ---
 The Walrus operator `:=` goal is to allow a user to name variables and use them
 in expressions with ease. It takes the form of `NAME := expr`. Below is an
