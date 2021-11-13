@@ -2,7 +2,7 @@ title: Alex Manson # name of the site
 author: Alex Manson # name of site's author
 email: dev@neurowinter.com # email of site's author
 baseurl: ""  # Weird issue here if this was not set then `pages/Neurowinter` was added to the css url
-url: https://neurowinter.com/ # root address of the site
+url: https://neurowinter.com # root address of the site
 tagline: > # description of the site (multiple lines allowed)
   Hacker, NLP enthusiast, ML/AI engineer
 description: > # description of the site (multiple lines allowed)
