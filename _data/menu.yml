@@ -9,4 +9,4 @@ entries:
 
   - title: posts
     post_list:
-      limit: 5
+      limit: 10

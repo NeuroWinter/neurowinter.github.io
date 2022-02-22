@@ -4,7 +4,7 @@ email: dev@neurowinter.com # email of site's author
 baseurl: ""  # Weird issue here if this was not set then `pages/Neurowinter` was added to the css url
 url: https://neurowinter.com # root address of the site
 description: > # description of the site (multiple lines allowed)
-  A collection of my learnings in all things Python, AI, MLOPS, NLP, Software engineering, and Bug Bounty Hunting.
+  A collection of my learnings in all things Python, AI, MLOPS, NLP, Software engineering, and Bug Bounty hunting.
 permalink: pretty
 repository: NeuroWinter/neurowinter.github.io
 
