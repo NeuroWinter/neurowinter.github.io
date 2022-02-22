@@ -1,8 +1,8 @@
 ---
 layout: post
-category: Security
+category: security
 title: Stop being asked for your ssh key password
-description: How to set up a password protected ssh key and automatically add it to you ssh-agent
+description: How to set up a password protected ssh key and automatically add it to you ssh-agent.
 ---
 
 ### Introduction
