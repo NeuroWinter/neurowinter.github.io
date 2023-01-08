@@ -2,7 +2,7 @@
 layout: post
 category: meta
 title: Why I Stopped Hosting my Blog on AWS
-description: A story of how complicating my blog by hosting it under 2 TLDs was a bad idea, and how KISS is so important.
+description: A story of how complicating my blog by hosting it under 2 TLDs was a bad idea, and why KISS is so important.
 ---
 
 # Summary
