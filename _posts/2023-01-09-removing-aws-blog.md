@@ -17,7 +17,7 @@ In the process of doing this I started playing with Terraform, GitHub Actions an
 
 With one of the main principles of this blog for me being to document my findings and share them, so others would not have as much as a hard time as I did to find the solution. Deploying my site (at least in the way I did it) to two different domains failed in the 2nd part of that principle. 
 
-While I am no SEO savant or really know that much about it, splitting your content to two different domains is always going to be a bad idea. All it does is split your traffic between two sites, and could potentially cause a fair amount of harm to your ranking on Google (if you care about that).  How many times have you asked yourself "now was that company name dot com or dot net ?" and end up googling it anyway to find it. That's what I was forcing people who read my posts to do every time. Did you find NeuroWinter.com or NeuroWinter.dev? Both were hosting the exact same content. 
+While I am no SEO savant or really know that much about it, splitting your content to two different domains is always going to be a bad idea. All it does is split your traffic between two sites, and could potentially cause a fair amount of harm to your ranking on Google (if you care about that).  How many times have you asked yourself "now was that company name dot com or dot net ?" and end up googling it anyway to find it. That's what I was forcing people who read my posts to do every time. Did you find [NeuroWinter.com](https://NeuroWinter.com) or [NeuroWinter.dev](https://NeuroWinter.dev)? Both were hosting the exact same content. 
 
 
 ## How did I get here ?
@@ -82,7 +82,7 @@ jobs:
           AWS_EC2_METADATA_DISABLED=true AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }} AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}  aws s3 sync ./_site/ s3://neurowinter-prod-personal-site-origin --delete
 ```
 
-Once it was all in the main branch I pushed some changes, and it all worked, navigating to https://neurowinter.dev showed me the exact same content as https://neurowinter.com ! 
+Once it was all in the main branch I pushed some changes, and it all worked, navigating to [NeuroWinter.dev](https://neurowinter.dev) showed me the exact same content as [NeuroWinter.com](https://neurowinter.com) ! 
 
 ## The Return to KISS
 
