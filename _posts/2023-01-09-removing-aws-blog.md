@@ -7,7 +7,7 @@ description: A story of how complicating my blog by hosting it under 2 TLDs was 
 
 # Summary
 
-I originally set up this blog as a place to document some of my findings and learnings while working in the tech industry. A place to put things that I found hard to find on Google, like my post on using Typing NoReturn incorrectly. 
+I originally set up this blog as a place to document some of my findings and learnings while working in the tech industry. A place to put things that I found hard to find on Google, like my post on using [Typing NoReturn incorrectly](% post_url 2021-11-12-noreturn-mistake%}). 
 
 I then started using this as a place to play with things, for example I am hosting this blog both on GitHub Pages, and a static site on AWS using AWS S3. 
 
@@ -17,7 +17,7 @@ In the process of doing this I started playing with Terraform, GitHub Actions an
 
 With one of the main principles of this blog for me being to document my findings and share them, so others would not have as much as a hard time as I did to find the solution. Deploying my site (at least in the way I did it) to two different domains failed in the 2nd part of that principle. 
 
-While I am no SEO savant or really know that much about it, splitting your content to two different domains is always going to be a bad idea. All it does is split your traffic between two sites, and could potentially cause a fair amount of harm to your ranking on Google (if you care about that).  How many times have you asked yourself "now was that company name dot com or dot net ?" and end up googling it anyway to find it. That's what I was forcing people who read my posts to do every time. Did you find NeuroWinter.com or NeuroWinter.dev? Both were hosting the exact same content. 
+While I am no SEO savant or really know that much about it, splitting your content to two different domains is always going to be a bad idea. All it does is split your traffic between two sites, and could potentially cause a fair amount of harm to your ranking on Google (if you care about that).  How many times have you asked yourself "now was that company name dot com or dot net ?" and end up googling it anyway to find it. That's what I was forcing people who read my posts to do every time. Did you find [NeuroWinter.com](https://NeuroWinter.com) or [NeuroWinter.dev](https://NeuroWinter.dev)? Both were hosting the exact same content. 
 
 
 ## How did I get here ?
@@ -82,7 +82,7 @@ jobs:
           AWS_EC2_METADATA_DISABLED=true AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }} AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}  aws s3 sync ./_site/ s3://neurowinter-prod-personal-site-origin --delete
 ```
 
-Once it was all in the main branch I pushed some changes, and it all worked, navigating to https://neurowinter.dev showed me the exact same content as https://neurowinter.com ! 
+Once it was all in the main branch I pushed some changes, and it all worked, navigating to [NeuroWinter.dev](https://neurowinter.dev) showed me the exact same content as [NeuroWinter.com](https://neurowinter.com) ! 
 
 ## The Return to KISS
 
