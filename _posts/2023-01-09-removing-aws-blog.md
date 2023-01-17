@@ -26,7 +26,7 @@ I am a tinkerer at heart and when it comes to personal projects to don't exactly
 
 I like to keep things simple to start off with, and then I always manage to find ways to complicate them, but given enough time I will always default to KISS (keep it simple stupid) and that is why I ended up removing the .dev domain all together. 
 
-I started with deploying my blog on GitHub Pages, as that took care of all the hard stuff for me. It made the act of having a blog super simple, all I had to do was check in new posts and bam they were live. However, I yearned to make it more complex, so to build a rod for my own back I bought NeuroWinter.dev, and started working on deploying the blog there. 
+First created my blog on GitHub Pages, as that took care of all the hard stuff for me. It made the act of having a blog super simple, all I had to do was check in new posts and bam they were live. However, I yearned to make it more complex, so to build a rod for my own back I bought NeuroWinter.dev, and started working on deploying the blog there. 
 
 Since Jekyll creates a static site I thought the best place to self-host it would be using AWS S3 Static Sites. So I ended up finding a way to make it even more simple and used [CloudPossse terraform aws cloudfront s3 cdn](https://github.com/cloudposse/terraform-aws-cloudfront-s3-cdn) to do all the heavy lifting for me. My final terraform was that module, setting up the providers and a variables file, nice and easy. (I have skipped the part about setting up DNS as that is covered extensively elsewhere):
 
