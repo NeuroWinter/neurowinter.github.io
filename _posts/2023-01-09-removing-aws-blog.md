@@ -7,7 +7,7 @@ description: A story of how complicating my blog by hosting it under 2 TLDs was 
 
 # Summary
 
-I originally set up this blog as a place to document some of my findings and learnings while working in the tech industry. A place to put things that I found hard to find on Google, like my post on using [Typing NoReturn incorrectly].
+I originally set up this blog as a place to document some of my findings and learnings while working in the tech industry. A place to put things that I found hard to find on Google, like my post on using [Typing NoReturn incorrectly](https://neurowinter.com/python/2021/11/12/noreturn-mistake/).
 
 I then started using this as a place to play with things, for example I am hosting this blog both on GitHub Pages, and a static site on AWS using AWS S3. 
 
