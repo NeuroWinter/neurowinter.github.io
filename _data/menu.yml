@@ -6,7 +6,7 @@ entries:
       - title: <a href='mailto:dev@neurowinter.com'>Email</a>
       - title: <a href='https://bugcrowd.com/NeuroWinter'>BugCrowd</a>
       - title: <a href='https://hackerone.com/neurowinter'>HackerOne</a>
-      - title: <a href='https://octodon.social/@NeuroWinter'>Mastodon</a>
+      - title: <a rel="me" href='https://octodon.social/@NeuroWinter'>Mastodon</a>
 
   - title: posts
     post_list:
