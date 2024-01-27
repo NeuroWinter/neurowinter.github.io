@@ -1,8 +1,8 @@
 ---
 layout: post
 category: Terraform
-title: Overcoming AWS Terraform Provider's Tagging Limitations for S3 Bucket Objects
-description: Overcoming AWS Terraform's S3 tagging limits: practical solutions for efficient cloud management.
+title: "Overcoming AWS Terraform Provider's Tagging Limitations for S3 Bucket Objects"
+description: "Overcoming AWS Terraform's S3 tagging limits: practical solutions for efficient cloud management."
 ---
 
 Tagging in Terraform gives us a very useful tool for managing our infrastructure. It allows us to filter sort, and report on a range of different things, but it also gives our console users some important information. I often use a lot of tags for my resources, these are normally set up when I define my provider, here is such an example:
