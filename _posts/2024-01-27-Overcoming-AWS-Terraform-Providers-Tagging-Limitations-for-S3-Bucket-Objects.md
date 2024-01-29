@@ -74,6 +74,58 @@ There are a few ways to solve this issue, but one is my favourite, you can eithe
 
 First, I am not a fan of setting tags at a resource level, I feel as though it is just repeating yourself, and clutters up the code base.  But the basic way to do this would be to add the `tags` setting to each of your resources, with what you want to tag each resource, and then removing the `default_tags` section of the provider. This does require making this change on all your resources, which in a large code base can be a bit frustrating.
 
+### Overriding the provider Tags
+
+This is a good solution that lets you keep your tags in the provider, but override them on a resource level. This is done by adding [override_provider](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_object#override_provider) argument to the `aws_s3_object`. 
+
+Here is an example:
+
+`infra/s3.tf`
+```yaml
+resource "aws_s3_object" "my_bucket_object" {
+  bucket = aws_s3_bucket.my_bucket.id
+  key    = "my-file.txt"
+  source = "./my-file.txt"
+  # Here we are going to use the override_provider to override the default tags
+  # so that we can not change the default_tags of our provider or need to
+  # create a new provider. We can additionally give the tags whatever tags we
+  # want.
+  override_provider {
+    default_tags {
+      tags = {}
+    }
+  }
+  depends_on = [
+    aws_s3_bucket.my_bucket
+  ]
+}
+```
+
+Now we can apply these changes and we can see that the default_tags are not going to be applied to the resource:
+
+```
+  # aws_s3_object.my_bucket_object will be created
+  + resource "aws_s3_object" "my_bucket_object" {
+      ...
+      + override_provider {
+          + default_tags {}
+        }
+    }
+
+Plan: 2 to add, 0 to change, 0 to destroy.
+
+...
+
+aws_s3_object.my_bucket_object: Creating...
+aws_s3_object.my_bucket_object: Creation complete after 1s [id=my-file.txt]
+
+Apply complete! Resources: 2 added, 0 changed, 0 destroyed.
+```
+
+Note that this argument is not available for all resources, and was only introduced in version 5.24.0 (November  2, 2023) of the AWS provider. 
+
+
+Thank you to [joombaga](https://www.reddit.com/user/joombaga/) for pointing this out to me on the [r/Terraform](https://www.reddit.com/r/Terraform/) subreddit!
 
 ### Provider Alias
 
@@ -152,4 +204,4 @@ I came across this issue while trying to write some Terraform code to deploy an 
 
 These little setbacks are all too common, and I shudder to think about the total hours others like me have spent trying to find the solution.
 
-Here is hoping that this acts as a resource for you so that you don't need to spend who knows how long goggling around for the answer. But remember, it is the dedication to learning that makes our jobs so fun! 
+Here is hoping that this acts as a resource for you so that you don't need to spend who knows how long googling around for the answer. But remember, it is the dedication to learning that makes our jobs so fun! 
