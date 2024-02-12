@@ -1,7 +1,8 @@
 ---
 layout: post
 category: Terraform
-title: "Overcoming AWS Terraform Provider's Tagging Limitations for S3 Bucket Objects"
+title: "Solving AWS S3 Tagging Limits with Terraform: Strategies & Tips"
+heading: "Overcoming AWS Terraform Provider's Tagging Limitations for S3 Bucket Objects"
 description: "Overcoming AWS Terraform's S3 tagging limits: practical solutions for efficient cloud management."
 ---
 

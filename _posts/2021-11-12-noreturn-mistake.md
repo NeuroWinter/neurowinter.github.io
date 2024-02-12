@@ -1,7 +1,8 @@
 ---
 layout: post
 category: python
-title: "I have been using Python typing's 'NoReturn' wrong"
+title: "Correcting Common Misuses of Python's 'NoReturn' in Typing"
+heading: "I have been using Python typing's 'NoReturn' wrong"
 description: A basic overview of my misunderstanding of Pythons NoReturn Type.
 ---
 I am a huge fan of python's new typing module which was introduced in version

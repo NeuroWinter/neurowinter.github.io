@@ -1,7 +1,8 @@
 ---
 layout: post
 category: python
-title: Python's Walrus Operator
+title: "Leveraging Python's Walrus Operator for Efficient Coding"
+heading: Python's Walrus Operator
 description: A quick look at Python's new Walrus Operator.
 ---
 The Walrus operator `:=` goal is to allow a user to name variables and use them

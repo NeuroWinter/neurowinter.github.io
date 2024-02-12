@@ -1,7 +1,8 @@
 ---
 layout: post
 category: git
-title: "How to improve your Git commits with Commitizen"
+title: "Enhance Git Commit Quality with Commitizen: A Guide for Developers"
+heading: "How to improve your Git commits with Commitizen"
 description: "This Blog post discusses the benefits of using Commitizen a CLI tool that helps in the writing of meaningful Git commit messages and follows the Conventional Commits specification."
 ---
 # Summary

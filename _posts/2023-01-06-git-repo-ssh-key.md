@@ -1,7 +1,8 @@
 ---
 layout: post
 category: git
-title: How to set GitHub SSH key for a particular repo
+title: "Setting Up GitHub SSH Keys for Specific Repositories: A Step-by-Step Guide"
+heading: How to set GitHub SSH key for a particular repo
 description: How to set a particular SSH key for a repo when using multiple GitHub accounts on a single machine.
 ---
 # Summary
