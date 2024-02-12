@@ -1,7 +1,8 @@
 ---
 layout: post
 category: git
-title: Reset Dev branch to Master
+title: "Aligning Dev Branch with Master: Techniques for Git Branch Reset"
+heading: Reset Dev branch to Master
 description: Quick and easy ways to reset your dev branch
 ---
 # Summary

@@ -1,7 +1,8 @@
 ---
 layout: post
 category: python
-title: Python3.8 Positional-only arguments
+title: "Mastering Python 3.8: Positional-Only Arguments Explained"
+heading: Python3.8 Positional-only arguments
 description: A overview and look at use cases for Positional-only arguments introduced in Python3.8 
 ---
 

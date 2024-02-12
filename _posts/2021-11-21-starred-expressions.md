@@ -1,7 +1,8 @@
 ---
 layout: post
 category: python
-title: "Quick look at Python 3's Stared Expressions"
+title: "Python 3's Starred Expressions: Unpacking and Performance Insights"
+heading: "Quick look at Python 3's Starred Expressions"
 description: A very quick look at Python 3's "Stared Expression" also called "Extended Iterable Unpacking"
 ---
 A starred expression is when you add a "*" in front of a variable. It can also

@@ -1,7 +1,8 @@
 ---
 layout: post
 category: AI
-title: Artificially Generated Truth
+title: "Navigating AI's Influence on Truth: Ethical Use & Misinformation Risks"
+heading: Artificially Generated Truth
 description: The fallacies of information seeking in a misinformed world.
 ---
 
