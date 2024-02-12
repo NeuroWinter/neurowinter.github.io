@@ -23,13 +23,13 @@ social:
   name: Alex Manson
   links:
     - https://twitter.com/NeuroWinter
-    - https://octodon.social/@NeuroWinter
+    - https://tilde.zone/@NeuroWinter
     - https://www.linkedin.com/in/alex-manson/
 
 google_site_verification: Cg3NHpLRBqjYq_ZQHk1IJSEAiWLub7eZ-V4E5lkacxE
 google_analytics: G-6DKEYWKCBN
 
-remote_theme: ipasechnikov/no-style-please
+remote_theme: NeuroWinter/no-style-please
 theme_config:
   appearance: "auto" # can be "light", "dark" or "auto"
   back_home_text: ".." # customize text for homepage link in post layout
