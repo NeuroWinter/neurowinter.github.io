@@ -7,6 +7,7 @@ entries:
       - title: <a href='https://bugcrowd.com/NeuroWinter'>BugCrowd</a>
       - title: <a href='https://hackerone.com/neurowinter'>HackerOne</a>
       - title: <a rel="me" href='https://tilde.zone/@NeuroWinter'>Mastodon</a>
+      - title: <a rel="me" href='https://bsky.app/profile/neurowinter.bsky.social'>Bsky</a>
 
   - title: posts
     post_list:
