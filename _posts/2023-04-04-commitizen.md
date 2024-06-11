@@ -122,6 +122,9 @@ Date:   Fri Jan 6 17:05:46 2023 +1300
 [...]
 
 ```
+This is a list of some of the posts I have made eg [simplifying my blog deployment](https://neurowinter.github.io/2023/01/09/removing-aws-blog.html) and [my post on Python's NoReturn type](https://neurowinter.com/python/2021/11/12/noreturn-mistake/).
+
+
 Now that does look a lot nicer than 
 ```bash
 commit 6d08107ccd08f6b85140f8e77d9ea9a2bf6f5ef6
