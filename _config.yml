@@ -11,7 +11,7 @@ timezone: Pacific/Auckland
 
 favicon: "./logo.png" # relative path to site's favicon
 goat_counter: "neurowinter" # put your GoatCounter name if you want to use GoatCounter analytics
-  
+
 # Here are a bunch of SEO things
 icon: "./logo.png" # relative path to site's favicon
 
