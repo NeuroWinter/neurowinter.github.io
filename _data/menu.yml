@@ -12,5 +12,3 @@ entries:
   - title: posts
     post_list:
       limit: 10
-      show_more_text: "See all posts"
-      show_more_url: "archive.html"
