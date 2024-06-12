@@ -10,5 +10,4 @@ entries:
       - title: <a rel="me" href='https://bsky.app/profile/neurowinter.bsky.social'>Bsky</a>
 
   - title: posts
-    post_list:
-      limit: 10
+    post_list: true
