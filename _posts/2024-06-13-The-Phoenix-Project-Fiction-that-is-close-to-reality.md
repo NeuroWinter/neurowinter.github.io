@@ -3,7 +3,7 @@ layout: post
 category: Books
 title: "The Phoenix Project: Fiction that is close to reality"
 heading: "The Phoenix Project: Fiction that is close to reality"
-description: A fictional story that resonates mirrors the reality of many organizations.
+description: A fictional story that mirrors the reality of many organizations. A book of outlineling the lessons learnt, so you dont need to learn them the hard way. This is a must-read for any tech leaders in 2024.
 ---
 
 [The Phoenix Project](https://itrevolution.com/product/the-phoenix-project/) is a book centred around Bill, who is thrust into the role of VP of IT in a traditional company known for blaming IT for all problems. The story follows Bill as he is mentored by Eric, a board member, and not only fixes the current state of IT but also creates a new course of action that improves everyone's lives. At the core of Eric's teachings are "The Three Ways," essential for a successful business. While this concept is central, I found other themes more relatable, and the Three Ways provide a framework to address these issues.
