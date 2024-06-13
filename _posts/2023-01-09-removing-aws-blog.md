@@ -83,7 +83,7 @@ jobs:
           AWS_EC2_METADATA_DISABLED=true AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }} AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}  aws s3 sync ./_site/ s3://neurowinter-prod-personal-site-origin --delete
 ```
 
-Once it was all in the main branch I pushed some changes, and it all worked, navigating to [NeuroWinter.dev](https://neurowinter.dev) showed me the exact same content as [NeuroWinter.com](https://neurowinter.com) ! 
+Once it was all in the main branch I pushed some changes, and it all worked, navigating to NeuroWinter.dev showed me the exact same content as [NeuroWinter.com](https://neurowinter.com) !
 
 ### The Return to KISS
 
