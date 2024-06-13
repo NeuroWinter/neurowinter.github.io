@@ -9,7 +9,7 @@ description: The fallacies of information seeking in a misinformed world.
 Artificial Intelligence (AI) and Large Language Models (LLMs) are undeniable. Platforms like LinkedIn are inundated with posts on leveraging ChatGPT to become a "10X developer" or generate automated blog content. Influencers on social media proudly share how they use these models for content creation, and schools even caution parents about students using them for homework assistance.
 While it may seem harmless, the widespread adoption of AI and LLMs carries significant risks if proper precautions are not taken. The potential for misleading the public and mishandling user data looms large. Without addressing the need for oversight, we run the risk of entering a future where AI and LLMs are widely used without adequate scrutiny. This could have detrimental effects on individuals, society, and the overall reliability of information itself. It is crucial to approach this trend with caution and ensure responsible and ethical use of these technologies.
 
-# The Illusion of Authority
+## The Illusion of Authority
 
 When using ChatGPT in the early days and even now, it comes across with a level of authority. You ask it a question, and then it gives you an answer. Due to the confident manner in which it replies, users assume it gives back factual information. And why would they have reason to question it? Most people who are not in the realm of AI development or have an understanding of how systems like this work. It's all a bit mystifying to the general user, like AI is some magical black box, leaning into the third of Clarke's Three Laws, which states, "Any sufficiently advanced technology is indistinguishable from magic." But when people believe it's magic, they will also believe it to be infallible.
 
@@ -18,16 +18,16 @@ A paper published on March 23, 2023, from OpenAI, the American artificial intell
 However, at the root of these models is that they do not entirely represent the truth. They are probabilistic, meaning it will give you the answer it deems to be the most correct from its training data, but there is no guarantee that this is representative of reality. If the answers it gives you align with the user's world view, or what they think is plausible enough to be the truth, then they will trust the output.
 
 
-# Artificial Hallucinations
+## Artificial Hallucinations
 
-## What are Hallucinations in AI?
+### What are Hallucinations in AI?
 
 When an LLM or AI model makes up things, it’s called hallucinating. Even though these models are trained on a large amount of data does not mean it is correct.
 
 The New York Times article "When A.I. Chatbots Hallucinate" details instances where the ChatGPT model fabricated information and presented it as truth. This may not seem surprising as it pulls information from what it can grab but the issue is that the engineers often have no idea why the model falsified information, even when there is counterevidence in its training data.
 
 
-## What effect do they have on the authority of ChatGPT?
+### What effect do they have on the authority of ChatGPT?
 
 Now that we know the model can lie, how can we trust it? When it comes to the public's use of these tools, trust must be the dealbreaker in how we use them.
 
@@ -38,7 +38,7 @@ The challenges of obtaining accurate information not only pose difficulties on t
 It is important to note that the issue of hallucinations or inaccuracies in AI language models extends beyond textual inaccuracies. A recent video titled "Google vs. ChatGPT: INSANE CHESS" by Gotham Chess demonstrates the significant extent to which these models can produce misleading or nonsensical outputs. In the video, Google’s AI model, Bard, plays ChatGPT and what starts as a normal chess game quickly becomes a game full of illegal moves and false declarations of victory. 
 
 
-## Pollution of the Web and AI’s Training Data 
+### Pollution of the Web and AI’s Training Data
 
 LLMs like ChatGPT are trained on a huge dataset made up of public literature like Wikipedia, blog posts, and anything else it can find online. A model will be more effective at a generalist task if it is trained on a lot of data covering various topics. Only in recent years have we learned that we cannot trust everything we read on the internet and should take a lot of things with a grain of salt. But is this what these models are doing? As we saw in the situation with OpenCage, ChatGPT didn't hesitate to regurgitate the false facts it learned to others.
 
@@ -53,7 +53,7 @@ Stack Overflow has also banned answers from ChatGPT in one of their latest polic
 It has another flow-on effect, as we know these models are trained on a lot of data, and with the wide usage of GPT, some of its new training data will be its own outputs. Unless there is a reliable way to determine if a human or a model writes a block of text, these models will get worse and become obsolete. When you train a model on its own outputs, you will exaggerate the biases and errors already present in the model.
 
 
-# The Early Parallels 
+## The Early Parallels
 
 The initial adoption of the web marked a significant moment, reminiscent of the present scenario surrounding artificial intelligence. Before its arrival, internet access necessitated a deep understanding of networking and computing. We find ourselves at another critical juncture, where the general public can now access remarkably powerful AI models with no relative training. 
 
@@ -66,12 +66,12 @@ One of the applications of GPT has been to assist in code writing. However, a ch
 Given this experience, it is reasonable to assume that others have encountered similar situations where they failed to verify and blindly accepted the AI-generated recommendations. Unfortunately, this creates an opportunity for exploitation, enabling malicious actors to identify non-existent recommended packages and fabricate them for their own purposes. A longer article on this can be found here: Voyager18 – Can you trust ChatGPT’s package recommendations?
 
 
-# The Risks of Integrating AI 
+## The Risks of Integrating AI
 
 With the recent surge in hype surrounding ChatGPT, numerous companies have eagerly sought to harness the advantages of integrating LLMs into their products. In marketing circles, AI and LLM have become the latest buzzwords. However, whether all these companies fully comprehend the potential implications of utilizing LLMs like GPT remains unclear. While some companies may have identified viable use cases for GPT and received approval from their customers to share customer data with third parties, there are additional concerns that business owners and technical managers must consider when dealing with third-party LLMs.
 
 
-## Volatile Tech
+### Volatile Tech
 
 Let’s assume that a company has developed an amazing feature that leverages OpenAI's ChatGPT. They have done extensive testing and found that the model's results are exactly what they want. They have done validation, choosing the perfect model version that ensures the desired output. The customers have beta-tested it and are very happy with the results.
 
@@ -80,7 +80,7 @@ Now what happens when OpenAI decides to update the model? Model updates might be
 The OpenAI documentation states, "With the release of gpt-3.5-turbo, some of our models are now being continually updated. We also offer static model versions that developers can continue using for at least three months after an updated model has been introduced." This means that you will have three months to test the new model. What are you going to do if these updates harm your product? How will you mitigate the risk of the core feature of your product being out of your control? Do you just accept it and hope that it doesn't happen? Or are you going to be proactive about it, and if you are, what will you do?
 
 
-## Data Privacy 
+### Data Privacy
 
 After we accept the inherent risks associated with the model's potential changes, it is important to address the issue of safeguarding customers' data. Customers trust businesses to be the custodian of their sensitive data; taking that role seriously is their job. They must consider the possible situations where a consumer will lose that trust. One of the major ways is a data breach. Businesses have control and visibility of their own system, but when they introduce third parties, controlling customer data becomes harder. They need to trust their third parties as much as their customers trust them.
 
@@ -91,7 +91,7 @@ While OpenAI has established it's own “Bug Bounty Program” to incentivize et
 It’s also vital to consider the implications of the General Data Protection Regulation (GDPR) and the specific responsibilities and designations of "Data Processor" or "Data Controller" under EU law when it comes to transmitting customer data to a third party, but that’s a topic for another day.
 
 
-# Navigating A World With AI
+## Navigating A World With AI
 
 A few things have changed (even since I've started writing this), and there are new warnings when you sign in to OpenAI, but I fear that the damage has already been done. We are seeing huge swathes of text that AI has generated pollute the web, misleading users, shoppers, students, and those who did not seek AI's help. This issue will only get worse when new improvements to the models are released, when it will become even less distinguishable between AI and authentic human-written text.
 
@@ -100,9 +100,9 @@ I can imagine in the not-so-far future that we will also have models that are tr
 As we wait for new technologies to facilitate that, we need to have a plan to approach the issues, and one of the biggest impacts in my mind is education. If a business owner or decision-maker is made aware of the issues surrounding these AI models, they can make the best decision for their company. If users are aware of the widespread usage of these models and their problems, they can also view information online with the knowledge that they might need to do some extra research to fact-check what they read.
 
 
-# A Path Forward
- 
+## A Path Forward
+
 We have an interesting path ahead of us as the public uses these free and accessible models to do all sorts of things. I'm not saying these technological advancements are problematic; they are far from it. These models have shown people what AI is capable of and have inspired many to develop innovative and creative things. These models have also sparked discussions on ethical considerations related to public data usage, model outputs' reliability, and data security assurance. However, these public models are not always the optimal choice for consequential tasks and are plagued by their own set of issues. 
-I hope that companies and individuals who are invested in these technologies will recognize the advantages of developing internal models specifically tailored to excel in the precise tasks they aim to address. 
+I hope that companies and individuals who are invested in these technologies will recognize the advantages of developing internal models specifically tailored to excel in the precise tasks they aim to address.
 We find ourselves in an incredibly innovative era but still have a long way to go.
 
