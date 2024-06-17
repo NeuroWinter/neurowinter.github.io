@@ -8,8 +8,6 @@ description: A fictional story that resonates mirrors the reality of many organi
 
 [The Phoenix Project](https://itrevolution.com/product/the-phoenix-project/) is a book centred around Bill, who is thrust into the role of VP of IT in a traditional company known for blaming IT for all problems. The story follows Bill as he is mentored by Eric, a board member, and not only fixes the current state of IT but also creates a new course of action that improves everyone's lives. At the core of Eric's teachings are "The Three Ways," essential for a successful business. While this concept is central, I found other themes more relatable, and the Three Ways provide a framework to address these issues.
 
-[The Phoenix Project](https://itrevolution.com/product/the-phoenix-project/) is a book centred around Bill, who is thrust into the role of VP of IT in a traditional company known for blaming IT for all problems. The story follows Bill as he is mentored by Eric, a board member, and not only fixes the current state of IT but also creates a new course of action that improves everyone's lives. At the core of Eric's teachings are "The Three Ways," essential for a successful business. While this concept is central, I found other themes more relatable, and the Three Ways provide a framework to address these issues.
-
 I found the book incredibly relatable for many reasons. There have been countless times when I've seen a manager arbitrarily set a release date without consulting the dev team or anyone else. This situation mirrors what Bill experienced with Chris, the head of Dev, and Sarah, the SVP of Retail Operations.
 
 The book covers many topics in its 35 chapters, and I will try to distil what resonated most with me from it:
