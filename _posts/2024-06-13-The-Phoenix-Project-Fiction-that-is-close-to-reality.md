@@ -69,3 +69,8 @@ The book also has a running theme of broken trust between the business and the I
 ## Closing Notes
 
 Overall, I found this book incredibly relatable. It distilled many core experiences in working in a toxic workplace, especially one where there is no ownership and no feeling of value. These workplaces often don't last too long before the business fails or something big happens to fix the culture. In this case, I am glad that Bill was able to turn the sinking ship around. As I stated in the transfer learning section, the issues you are facing are not normally unique. Read this book and learn how someone else has solved similar issues and apply them to your situation. While this book does not provide a concrete process or "action items," the philosophy behind the book is the important lesson here.
+
+---
+
+**Want more from *The Phoenix Project*?**
+I’ve collected [key quotes and insights from *The Phoenix Project* on Armitage Archive](https://armitagesarchive.com/books/the-phoenix-project) — highlights that stood out to me while reading.
