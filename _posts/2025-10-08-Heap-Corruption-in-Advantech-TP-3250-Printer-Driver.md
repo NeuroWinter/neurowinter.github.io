@@ -6,6 +6,7 @@ heading: "Heap Corruption in Advantech TP 3250 Printer Driver (DrvUI_x64_ADVANTE
 description: Mismatched input output buffers to DocumentPropertiesW trigger a bug in the Advantech TP 3250 usermode driver module, crashing with 0xc0000374 (heap corruption)
 ---
 
+> **Note:** This post is currently under review. Last updated: 2025-10-08
 
 ## TLDR:
 
