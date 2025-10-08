@@ -16,7 +16,7 @@ description: Mismatched input output buffers to DocumentPropertiesW trigger a bu
   code execution, but that would only be in the user space and not kernel.
 - Minimal crash PoC can be found in the appendix.
 - Affected dll: DrvUI_x64_ADVANTECH.dll (v0.3.9200.20789).
-- Driver can be found here: [Advantech TP 3250 Driver Download](https://www.advantech.com/emt/support/details/driver?id=1-2LFJBRQ)
+- Driver can be found here: [Advantech URP-PT802/PT803 Driver Download](https://www.advantech.com/emt/support/details/driver?id=1-2LFJBRQ) this uses the same TP 3250 driver under the hood. 
 
 
 ## Background:
