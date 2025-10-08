@@ -70,7 +70,8 @@ heap memory that it thinks it owns.
 #### What this looks like it Ghidra
 
 First things first, since I was looking at memory level issues, I did the basic search for `malloc`, `memcpy`, `new` and `free`.
-memcpy seemed to show the most interesting things, these are the functions that looked interesting to me, and are the root of this bug:
+
+`memcpy` seemed to show the most interesting things, these are the functions that looked interesting to me, and are the root of this bug:
 
 But first here is a simplified call graph:
 `DocumentPropertiesW → DrvDocumentPropertySheets → FUN_180027d30 → FUN_180027c0c → memcpy(…) → heap corruption`
@@ -103,8 +104,10 @@ FUN_180027c0c(pIn, pOut)
 ```
 Copies Header bytes: `hdr = min(pIn->dmSize, pOut->dmSize)`
 `memcpy(pOut, pIn, hdr)`
+
 Copies tail or extra bytes: `tail = min(pIn->dmDriverExtra, pOut->dmDriverExtra)`
 `memcpy((BYTE*)pOut + pOut->dmSize, (BYTE*)pIn + pIn->dmSize, tail)`
+
 By design this should write a total of `hdr + tail bytes` However if `pOut` is less that `written` we will get our bug.
 
 #### Full functions
