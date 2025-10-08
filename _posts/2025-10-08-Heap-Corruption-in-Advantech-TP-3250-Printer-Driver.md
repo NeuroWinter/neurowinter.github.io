@@ -24,7 +24,7 @@ description: Mismatched input output buffers to DocumentPropertiesW trigger a bu
 
 Recently while doing some reading on security news, I had reaslised that I had
 never really done any research into any windows drivers. I also noticed that
-almost every shop that I go into has a receipt printer! So I though this would
+almost every shop that I go into has a receipt printer! So I thought this would
 be an amazing target, as I had also noticed that 99% of the POS terminals I
 have seen also run windows (an outdated one at that).  Choosing Advantech was
 just the first brand of printer I saw at my local takeaway. This was also my
@@ -42,6 +42,7 @@ first forray into learning ghidra in any real detail, and it was a lot of fun!
 
 1: Compile the `crash_min.c` file in the appendix eg: `x86_64-w64-mingw32-gcc
    crash_min.c -o crash_min.exe -lwinspool`
+
 2: Enable crash dumps on the Windows system. Run the following commands in Admin Powershell:
 ```
 New-Item -Path "HKLM:\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps" -Force | Out-Null
@@ -54,6 +55,7 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\Windows Error Reporting
 
 ```
 3: Install the driver from the above link (in TLDR)
+
 4: Run the compiled code, and view the `crash_min.exe.2896` file in the `C:\Dumps\` dir
 This should match the crash output in the appendix :)
 
@@ -62,7 +64,7 @@ This should match the crash output in the appendix :)
 The bug lies in the drivers assumption that the output buffer that has been
 given to it is as big as the buffer given as the input. However since both of
 these are user controlled you can make that not so. With an undersized output
-buffer you can force the down stream logic to perform an invalid free on teh
+buffer you can force the down stream logic to perform an invalid free on the
 heap memory that it thinks it owns.
 
 #### What this looks like it Ghidra
@@ -86,9 +88,13 @@ param_2+0x28 = cbNeeded.
 FUN_180027d30(pIn, pIn2, pOut)
 ```
 If `pIn2 == NULL: memcpy(pOut, pIn, pIn->dmSize + pIn->dmDriverExtra)` - This will might be another bug...
+
 If `pIn2 != NULL` (PoC path):
+
 Sets `pOut->dmSize = min(pIn->dmSize, pIn2->dmSize)`
+
 Sets `pOut->dmDriverExtra = min(pIn->dmDriverExtra, pIn2->dmDriverExtra)`
+
 Calls `FUN_180027c0c(pIn, pOut)` to perform the actual header+tail copies.
 
 
