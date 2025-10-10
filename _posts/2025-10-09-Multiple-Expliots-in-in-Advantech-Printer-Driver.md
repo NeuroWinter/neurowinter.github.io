@@ -31,7 +31,7 @@ is needed is access to the dll.
 
 ## Background:
 
-After poking around and finding the bug in the last blog post in the DrvUI dll ([previous post]({{ site.baseurl }}{% post_url 2025-10-08-Heap-Corruption-in-Advantech-TP-3250-Printer-Driver.md %})),
+After poking around and finding the bug in the last blog post in the DrvUI dll ([previous post]({{ site.baseurl }}{% post_url 2025-10-08-Heap-Corruption-in-Advantech-TP-3250-Printer-Driver %})),
 I chose to look at some of the other dlls installed with these drivers :)
 
 One of those dlls was the `DrvRender_x64_ADVANTECH.dll` the fun thing here is
