@@ -63,7 +63,7 @@ different arithmetic. This turned out to be fruitful as there were some 32bit
 
 #### From DLL to DRVFN table
 
-So, one of the main things I leant in this process was that of the DRVFN table.
+So, one of the main things I learnt in this process was that of the DRVFN table.
 For those unfamiliar with Windows driver architecture, the DRVFN (Driver
 Function) table is a dispatch table that printer drivers use to
 tell Windows which functions they support. When a driver's DrvEnableDriver
