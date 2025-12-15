@@ -3,20 +3,19 @@ layout: post
 category: Security
 title: "Heap Corruption in Advantech TP 3250 Printer Driver (DrvUI_x64_ADVANTECH.dll) via DocumentPropertiesW"
 heading: "Heap Corruption in Advantech TP 3250 Printer Driver (DrvUI_x64_ADVANTECH.dll) via DocumentPropertiesW"
-description: Mismatched input output buffers to DocumentPropertiesW trigger a bug in the Advantech TP 3250 usermode driver module, crashing with 0xc0000374 (heap corruption)
+description: CVE-2025-63701 - Mismatched input output buffers to DocumentPropertiesW trigger a bug in the Advantech TP 3250 usermode driver module, crashing with 0xc0000374 (heap corruption)
 ---
-
-> **Note:** This post is currently under review. Last updated: 2025-10-08
 
 ## TLDR:
 
+- **CVE ID**: CVE-2025-63701
 - There is a bug in the DrvUI_x64_ADVANTECH.dll when DocumentPropertiesW() is
   called with a valid dmDriverExtra but an undersized output buffer.
 - I was only able to cause a crash, but I think you could move it to a
   code execution, but that would only be in the user space and not kernel.
 - Minimal crash PoC can be found in the appendix.
 - Affected dll: DrvUI_x64_ADVANTECH.dll (v0.3.9200.20789).
-- Driver can be found here: [Advantech URP-PT802/PT803 Driver Download](https://www.advantech.com/emt/support/details/driver?id=1-2LFJBRQ) this uses the same TP 3250 driver under the hood. 
+- Driver can be found here: [Advantech URP-PT802/PT803 Driver Download](https://www.advantech.com/emt/support/details/driver?id=1-2LFJBRQ) this uses the same TP 3250 driver under the hood.
 
 
 ## Background:
@@ -262,6 +261,9 @@ least the required amout of memory.
 - Fri, Aug 1 2025: Response from NCSC
 - Wed, Aug 13 2025: NCSC reported bug to vendor
 - Mon, Oct 6 2025: NCSC informed me that the disclosure period has ended and I am free to post about this.
+- Sat, Oct 11 2025: Applied for CVE via Mitre
+- Sat, Nov 15 2025: CVE-2025-63701 published on mitre.org
+
 
 
 ## Appendix:
@@ -485,6 +487,7 @@ Followup:     MachineOwner
 
 ## Relevant Resources:
 
+- [CVE-2025-63701](https://www.cve.org/CVERecord?id=CVE-2025-63701)
 - [DocumentProperties function](https://learn.microsoft.com/en-us/windows/win32/printdocs/documentproperties)
 - [Print Job Functions](https://learn.microsoft.com/en-us/windows/win32/printdocs/printing-and-print-spooler-functions)
 - [CWE-122: Heap-based Buffer Overflow](https://cwe.mitre.org/data/definitions/122.html)
