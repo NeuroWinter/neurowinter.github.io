@@ -6,8 +6,6 @@ heading: "The Hunt for POS Drivers Continues: Your Drivers Are in Another Castle
 description: "Bought seven dead POS terminals hunting for vulnerable printer drivers. Built a forensic imaging workflow with provenance tracking. Found absolutely nothing, every drive was professionally wiped. Here's what I learned about driver hunting and why professional IT liquidators are your enemy."
 ---
 
-# The Hunt for POS Drivers Continues: Your Drivers Are in Another Castle
-
 After finding my [first CVE in a printer driver](https://neurowinter.com/security/2025/10/08/Heap-Corruption-in-Advantech-TP-3250-Printer-Driver/), I bought a pile of dead POS terminals from an auction,  thinking "these systems handle receipt printers, barcode scanners, cash drawers, driver goldmine!" I built a whole forensic imaging workflow with provenance tracking, carefully imaged 7 drives, and found... wait for it .... absolutely nothing.
 
 ## World 1: Why I Bought a Pile of Dead POS Terminals
