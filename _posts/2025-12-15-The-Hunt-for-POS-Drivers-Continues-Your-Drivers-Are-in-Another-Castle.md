@@ -294,19 +294,6 @@ While there was no real plunder for this voyage, I gained valuable intel:
 3. New forensics skills - testdisk and photorec are now in my toolkit
 4. Negative signal is signal - Now I know to avoid professional IT liquidators
 
-### Where to Actually Hunt for Drivers
-
-Since dead drives didn't work, here's my new strategy:
-
-1. Vendor support sites with expired SSL certificates - They're usually abandoned but still host driver archives
-2. Archive.org snapshots of manufacturer websites - Especially companies that went bankrupt 2010-2015
-3. Sketchy driver aggregator sites - DriverGuide, DriverPack, etc. (scan everything in a VM first)
-4. GitHub repos of "all drivers ever" projects - Some enthusiasts mirror vendor catalogs
-5. Individual sellers on Trade Me/Craigslist - People who don't know/care about data sanitization
-6. Library Genesis and similar archives - Sometimes driver CDs get archived alongside repair manuals
-
-The lesson: Professional liquidators are your enemy in this game. You want the amateur the careless, the "just taking up space" seller.
-
 ### Next Steps
 
 The princess...er, drivers, are still out there. The scripts work the methodology is sound, I just need to find sellers who *aren't* doing their job properly. Time to try another world.
