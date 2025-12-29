@@ -9,5 +9,8 @@ entries:
       - title: <a rel="me" href='https://tilde.zone/@NeuroWinter'>Mastodon</a>
       - title: <a rel="me" href='https://bsky.app/profile/neurowinter.bsky.social'>Bsky</a>
 
-  - title: posts
+  - title: <a href='/categories/'>posts by category</a>
+
+  - title: recent posts
     post_list: true
+
