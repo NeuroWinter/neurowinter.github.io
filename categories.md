@@ -15,6 +15,7 @@ Long form thinking on tech, security, and industry trends.
 
 CVEs, vulnerability analysis, and driver hunting.
 
+- [RCE and arbitrary file write in Vitess vtbackup via untrusted MANIFEST fields](/security/2026/05/18/RCE-and-arbitrary-file-write-in-Vitess-vtbackup-via-untrusted-MANIFEST-fields/)
 - [Heap Corruption in Advantech TP 3250 Printer Driver (CVE-2025-63701)](/security/2025/10/08/Heap-Corruption-in-Advantech-TP-3250-Printer-Driver/)
 - [Advantech Printer Driver: Heap Corruption via Monochrome Blit Function](/security/2025/10/09/Multiple-Expliots-in-Advantech-Printer-Driver/)
 - [The Hunt for POS Drivers Continues: Your Drivers Are in Another Castle](/security/2025/12/15/The-Hunt-for-POS-Drivers-Continues-Your-Drivers-Are-in-Another-Castle/)
@@ -43,3 +44,4 @@ Practical fixes, TILs, and short tutorials.
 
 ### Meta
 - [Switching from AWS to Simplify Blog Hosting](/meta/2023/01/09/removing-aws-blog/)
+
