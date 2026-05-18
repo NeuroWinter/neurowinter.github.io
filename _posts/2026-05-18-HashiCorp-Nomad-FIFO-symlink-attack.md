@@ -25,6 +25,7 @@ Nomad uses named pipes (FIFOs) for task log handling. The container and the Noma
 
 - `driver.go#L1564` calls `runLogStreaming` on every task restart.
 - `handle.go#L151` is where the FIFO actually gets opened, without `O_NOFOLLOW`.
+
 ## The bug
 
 1. Task is running. FIFO exists at `/alloc/logs/.sidecar.stdout.fifo`.
