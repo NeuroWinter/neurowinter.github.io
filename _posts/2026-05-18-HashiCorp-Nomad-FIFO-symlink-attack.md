@@ -71,6 +71,7 @@ I've had a lot worse CVD experiences :)
 - **17 April 2026:** CVE-2026-6959 to be issued; fix scope expanded to logmon
 - **8 May 2026:** HashiCorp finds same bug in exec2 driver; CVE-2026-8052 reserved
 - **13 May 2026:** Both bulletins and CVEs published; Nomad 2.0.1, 1.11.5, 1.10.11, exec2 0.1.2 released
+
 ---
 
 ## Appendix A — PoC Files
