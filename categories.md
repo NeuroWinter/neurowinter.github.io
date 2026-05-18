@@ -15,6 +15,7 @@ Long form thinking on tech, security, and industry trends.
 
 CVEs, vulnerability analysis, and driver hunting.
 
+- [HashiCorp Nomad FIFO symlink attack (CVE-2026-6959, CVE-2026-8052)](/security/2026/05/18/HashiCorp-Nomad-FIFO-symlink-attack/)
 - [RCE and arbitrary file write in Vitess vtbackup via untrusted MANIFEST fields](/security/2026/05/18/RCE-and-arbitrary-file-write-in-Vitess-vtbackup-via-untrusted-MANIFEST-fields/)
 - [Heap Corruption in Advantech TP 3250 Printer Driver (CVE-2025-63701)](/security/2025/10/08/Heap-Corruption-in-Advantech-TP-3250-Printer-Driver/)
 - [Advantech Printer Driver: Heap Corruption via Monochrome Blit Function](/security/2025/10/09/Multiple-Expliots-in-Advantech-Printer-Driver/)
@@ -44,4 +45,3 @@ Practical fixes, TILs, and short tutorials.
 
 ### Meta
 - [Switching from AWS to Simplify Blog Hosting](/meta/2023/01/09/removing-aws-blog/)
-

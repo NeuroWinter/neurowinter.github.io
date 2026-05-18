@@ -23,6 +23,7 @@ Pending disclosure: DragonflyDB Issues (reported May 2026).
 
 ## Writeups
 
+- [HashiCorp Nomad FIFO symlink attack (CVE-2026-6959, CVE-2026-8052)](/security/2026/05/18/HashiCorp-Nomad-FIFO-symlink-attack/)
 - [RCE and arbitrary file write in Vitess vtbackup via untrusted MANIFEST fields](/security/2026/05/18/RCE-and-arbitrary-file-write-in-Vitess-vtbackup-via-untrusted-MANIFEST-fields/)
 - [Heap Corruption in Advantech TP-3250 Printer Driver (CVE-2025-63701)](/security/2025/10/08/Heap-Corruption-in-Advantech-TP-3250-Printer-Driver/)
 - [Advantech Printer Driver: Heap Corruption via Monochrome Blit Function](/security/2025/10/09/Multiple-Expliots-in-Advantech-Printer-Driver/)
@@ -34,5 +35,4 @@ Bug bounty and recon tooling, built around my bounty workflow.
 
 - [bugbounty_image](https://github.com/NeuroWinter/bugbounty_image) — Docker image with my recon stack. Fork as you wish.
 - [lab-scripts](https://github.com/NeuroWinter/lab-scripts) — Disk imaging and forensics scripts from the POS driver hunting work.
-
 
