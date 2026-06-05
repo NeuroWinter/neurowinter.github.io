@@ -12,6 +12,10 @@ Reported vulnerabilities with published advisories.
 
 | CVE | Target | Class | CVSS | Advisory |
 |-----|--------|-------|------|----------|
+| CVE-2026-48105 | Arc Enterprise (Basekick Labs) | Cluster FSM accepts arbitrary file paths → cluster-wide path-traversal worm primitive | Critical | [GHSA-f85q-mvg8-qf37](https://github.com/Basekick-Labs/arc/security/advisories/GHSA-f85q-mvg8-qf37) |
+| CVE-2026-48106 | Arc Enterprise (Basekick Labs) | Cluster replication accepts unauthenticated `MsgReplicateSync` → cluster-wide data injection | High | [GHSA-wfgr-8x84-22q7](https://github.com/Basekick-Labs/arc/security/advisories/GHSA-wfgr-8x84-22q7) |
+| CVE-2026-47735 | Arc (Basekick Labs) | Authenticated arbitrary local-file read via DuckDB I/O functions, bypasses RBAC | High | [GHSA-p2j4-c4g6-rpf5](https://github.com/Basekick-Labs/arc/security/advisories/GHSA-p2j4-c4g6-rpf5) |
+| CVE-2026-48050 | Arc (Basekick Labs) | Unauthenticated `pprof` endpoints → runtime state leak + CPU-burn DoS | Moderate | [GHSA-j93g-rp6m-j32m](https://github.com/Basekick-Labs/arc/security/advisories/GHSA-j93g-rp6m-j32m) |
 | CVE-2026-6959 | HashiCorp Nomad / Nomad Enterprise | Symlink attack → arbitrary file read/write on client host | 6.0 Medium | [HCSEC-2026-14](https://discuss.hashicorp.com/t/hcsec-2026-14-nomad-arbitrary-file-read-write-on-client-host-through-symlink-attack/77416) |
 | CVE-2026-8052 | HashiCorp Nomad exec2 task driver | Symlink attack → arbitrary file read/write on client host | 6.0 Medium | [HCSEC-2026-13](https://discuss.hashicorp.com/t/hcsec-2026-13-nomads-exec2-task-driver-vulnerable-to-arbitrary-file-read-write-on-client-host-through-symlink-attack/77415) |
 | CVE-2026-27965 | Vitess vtbackup | OS command injection → RCE | 8.4 High | [GHSA-8g8j-r87h-p36x](https://github.com/vitessio/vitess/security/advisories/GHSA-8g8j-r87h-p36x) |
@@ -35,4 +39,3 @@ Bug bounty and recon tooling, built around my bounty workflow.
 
 - [bugbounty_image](https://github.com/NeuroWinter/bugbounty_image) — Docker image with my recon stack. Fork as you wish.
 - [lab-scripts](https://github.com/NeuroWinter/lab-scripts) — Disk imaging and forensics scripts from the POS driver hunting work.
-
