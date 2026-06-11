@@ -22,7 +22,7 @@ description: "A full Lua sandbox escape in DragonflyDB via getmetatable(_G) meta
 ## Background
 
 I'd been reading Dragonfly's source on a weekend, mostly because I wanted to
-see how a from-scratch Redis-compatible server handles scripting and how I
+see how a from scratch Redis compatible server handles scripting and how I
 could abuse it. Redis style `EVAL` is one of those features that looks small
 from the outside and is a whole lot more intersting when you look at it more:
 you're handing an attacker a real programming language and then trying to fence
@@ -99,7 +99,7 @@ local f = load(bc, "test", "b")
 
 `string.dump` gives you compiled bytecode. `load(..., "b")` reads compiled
 bytecode back. Both are right there once the guards are gone. This is the core
-issue (a protection-mechanism failure, CWE-693) and everything below relies on
+issue (a protection mechanism failure, CWE-693) and everything below relies on
 this.
 
 None of this is new code, either. That metatable approach has been Dragonfly's
@@ -132,10 +132,10 @@ trying to go further: `tostring` on a function hands back the pointer as text,
 so this is also a memory address leak past ASLR. Hold that thought for the
 Where it stops section.
 
-**Bytecode manipulation and an out-of-bounds write (CWE-787).** With
-`string.dump` and `load` both reachable you can round-trip bytecode through
+**Bytecode manipulation and an out of bounds write (CWE-787).** With
+`string.dump` and `load` both reachable you can round trip bytecode through
 your own patcher. The Lua VM doesn't validate the `SETUPVAL` index coming out
-of loaded bytecode, so a negative index is an out-of-bounds write. Easiest way
+of loaded bytecode, so a negative index is an out of bounds write. Easiest way
 to see it is to dump a closure, find the `SETUPVAL` instruction, and rewrite
 its index:
 
@@ -165,10 +165,10 @@ inner()  -- writes 0x16 to memory at the upvalue[-1] location
 ```
 
 That's a write where it shouldn't be, and it'll take the process down with a
-SIGSEGV. It is a crash/OOB-write primitive, not a controlled-write-to-anything
+SIGSEGV. It is a crash/OOB write primitive, not a controlled write to anything
 primitive. More on why in a moment.
 
-**Multi-EVAL state persistence.** Globals survive across `EVAL` commands on the
+**Multi EVAL state persistence.** Globals survive across `EVAL` commands on the
 same connection. So you don't have to cram the whole thing into one script; you
 can set up the escape in one call and use it in the next:
 
@@ -199,7 +199,7 @@ achive much at all.
 This is the part I want to be straight up about, because it's most of the work
 and none of the win.
 
-I tried real hard to take the OOB write and the C-function reach somewhere real
+I tried real hard to take the OOB write and the C function reach somewhere real
 something like a rce or anything more than what it is right now. I threw more
 than 4.2 billion fuzzing attempts at the `SETUPVAL` OOB alone over multiple
 nights, looking for a path from "negative index write" to controlled execution.
@@ -209,14 +209,14 @@ from this surface.
 
 The reason is boring and it's the right kind of boring: `io` and `os` are never
 loaded into the Lua state, and nothing like `popen` is registered. So the
-type-confusion / C-function-call trick has nothing dangerous to reach. You can
+type confusion / C function call trick has nothing dangerous to reach. You can
 call `type` and `tostring` all day yay... There just is no `os.execute` sitting
 in the registry to find. The dangerous primitives that would normally turn a
 Lua sandbox escape into a shell just aren't present.
 
-So: full sandbox escape, a memory-corruption crash, an address leak, and a
+So: full sandbox escape, a memory corruption crash, an address leak, and a
 bloody brick wall past that, put there on purpose. Credit where it's due. That
-defense-in-depth call is the difference between this and a much worse report.
+defense in depth call is the difference between this and a much worse report.
 
 ---
 
@@ -259,13 +259,13 @@ argument. It needs `EVAL` and nothing else.
 The fixes were already going up in the repo before I'd even had a human reply
 (more on the timeline below). Three PRs cover it, all landed in v1.39.0:
 
-- **PR #7370: sandbox hardening.** `rawset`, `setmetatable`, and `getmetatable` are now overridden to block access to `_G` and the global library tables, and guard metatables are attached so scripts can't replace or corrupt them across executions. This is the one that actually closes the escape: take `rawset` and `getmetatable` off the table and the three-line trick has nothing to grab.
+- **PR #7370: sandbox hardening.** `rawset`, `setmetatable`, and `getmetatable` are now overridden to block access to `_G` and the global library tables, and guard metatables are attached so scripts can't replace or corrupt them across executions. This is the one that actually closes the escape: take `rawset` and `getmetatable` off the table and the three line trick has nothing to grab.
   - Worth a note: the automated review on that PR flagged that an early version of the guard still let you mutate the returned metatable's fields directly (`mt.__newindex = nil` via a normal table assignment rather than `rawset`). Same shape as the original bug, one rung down. That's why the shipped fix also pins guard metatables onto the global tables instead of only wrapping `rawset`. Good catch by whoever was reviewing.
 - **PR #7368: randstr validation.** Argument count, type, and size are now checked (count 1–32768, size 1–16 MiB). The unbounded `std::string` allocation is gone.
-- **PR #7376: load restricted to text-only.** `load` is wrapped to force mode `"t"` and returns nil for any binary input regardless of the mode the caller asks for. That kills the bytecode path specifically: you can still escape into `load` in theory, but you can't feed it crafted compiled bytecode anymore, so the `SETUPVAL` trick has no way in.
+- **PR #7376: load restricted to text only.** `load` is wrapped to force mode `"t"` and returns nil for any binary input regardless of the mode the caller asks for. That kills the bytecode path specifically: you can still escape into `load` in theory, but you can't feed it crafted compiled bytecode anymore, so the `SETUPVAL` trick has no way in.
 
-If you want the one-line version: v1.39.0 takes away the keys
-(`rawset`/`getmetatable`), bolts the bytecode door (`load` text-only), and
+If you want the one line version: v1.39.0 takes away the keys
+(`rawset`/`getmetatable`), bolts the bytecode door (`load` text only), and
 bounds the allocation (`randstr`).
 
 ---
@@ -288,7 +288,7 @@ up on the 21st. Quiet on email, fast in the repo. I'll take that over the
 reverse any day.
 
 v1.39.0 shipped on 9 June with all three fixes folded into a big release (the
-Lua hardening is a few lines in a changelog that's mostly full-text search
+Lua hardening is a few lines in a changelog that's mostly full text search
 work). On 10 June I asked Roman whether the team planned to request a CVE, and
 whether I was clear to write this up. He said go ahead on the blog and offered
 to help with the CVE. That part's still in motion. I'm working out whether to
@@ -311,7 +311,7 @@ drive it through a GitHub advisory or straight through MITRE.
 
 - [PR #7370: Harden sandbox by protecting rawset, setmetatable, and getmetatable](https://github.com/dragonflydb/dragonfly/pull/7370)
 - [PR #7368: Add input size validation to dragonfly.randstr()](https://github.com/dragonflydb/dragonfly/pull/7368)
-- [PR #7376: Restrict load() to text-only mode](https://github.com/dragonflydb/dragonfly/pull/7376)
+- [PR #7376: Restrict load() to text only mode](https://github.com/dragonflydb/dragonfly/pull/7376)
 - [Dragonfly v1.39.0 release](https://github.com/dragonflydb/dragonfly/releases/tag/v1.39.0)
 - Vulnerable file: `src/core/interpreter.cc` (sandbox init ~386–407, `dragonfly.randstr` ~467–506)
 
