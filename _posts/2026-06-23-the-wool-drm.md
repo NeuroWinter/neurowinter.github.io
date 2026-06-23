@@ -19,7 +19,7 @@ description: "Inside wyourname's encrypted .so loaders, the DRM a Chinese reward
 
 ## Why I started pulling on these .so files
 
-At the end of the last post I had a repo I couldn't read. Here's the part I
+At the end of [the last post]({% post_url 2026-06-23-a-weekend-in-the-wool %}) I had a repo I couldn't read. Here's the part I
 skipped over: qlk's own obfuscation was never the hard problem.
 
 Every script is the same trick, base85 or XOR or a subtract cipher, then zlib,
@@ -51,7 +51,7 @@ sitting right at the top of the file:
 DEBIAN_URL = 'https://raw.githubusercontent.com/wyourname/wool/master/others'
 ```
 
-That was the repo. wyourname/wool: zero stars, description 自用 ("personal
+That was the repo. [wyourname/wool](https://github.com/wyourname/wool): zero stars, description 自用 ("personal
 use"), quietly hosting the loaders a large portion of the scene was using
 to protect their scripts.
 
@@ -373,7 +373,7 @@ To see why the wool C2 model is actually strong, it helps to look at someone in
 the same scene who did it the other way. `yphd` and `khr2606` are two binaries
 from a neighbouring repo, and they look intimidating: 15 MB and 10 MB ELF files,
 every string encrypted, no readable Python anywhere. But they are Nuitka
-`--onefile` builds. Nuitka is a Python to C compiler, and `--onefile` bundles
+`--onefile` builds. [Nuitka](https://nuitka.net/) is a Python to C compiler, and `--onefile` bundles
 the whole interpreter plus a zstd-compressed copy of the program into a single
 executable. The "encryption" is just Nuitka packing its constant tables. It
 isn't a security feature and it isn't gated on anything. Everything needed to
