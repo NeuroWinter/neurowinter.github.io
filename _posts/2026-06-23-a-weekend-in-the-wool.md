@@ -114,7 +114,7 @@ exactly... none. Everything I did manage to crack is the older, weaker tier.
 
 Over the next five posts I'll pull each layer apart, so stay tuned for:
 
-1. **The DRM**: how wyourname's encrypted `.so` loaders and C2 actually work,
+1. [**The DRM**]({% post_url 2026-06-23-the-wool-drm %}): how wyourname's encrypted `.so` loaders and C2 actually work,
    and how far I got pulling them apart.
 2. **Farming the farmers**: smallfawn's JD.com login tool, quietly wired to rob
    the people who buy it.
