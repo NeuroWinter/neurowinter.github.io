@@ -20,7 +20,7 @@ description: "A weekend that started with a grep.app search for leaked password 
 
 ## How it all started:
 
-Recently a friend shared a link to grep.app, a super fast GitHub search tool.
+Recently a friend shared a link to [grep.app](https://grep.app), a super fast GitHub search tool.
 I started hunting for known password and API key prefixes. One of them landed
 me on this repo: https://github.com/985Ming/qlk.
 
