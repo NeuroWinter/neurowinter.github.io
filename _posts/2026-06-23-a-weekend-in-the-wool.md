@@ -76,12 +76,11 @@ and the more it looked like an actual supply chain. Roughly, it stacks up like t
   Chinese loyalty and points programs, and a separate crowd cracking iOS in-app
   purchases (MCdasheng, Yu9191). Different targets, same playbook.
 - **A protection layer** (protecting the scripts) — qlk's own obfuscation came
-  apart easily, and that turned out to be the easy tier. One operator,
-  wyourname, runs the industrial version: DRM as a service, encrypted `.so`
-  loaders plus a C2 server that hands out the decryption key per machine. The
-  other authors rent it so their scripts can't just be lifted straight off
-  GitHub. That tier is the one that actually stopped me. At least this is what
-  I think is happening.
+  apart easily, and that turned out to be the easy tier. One operator, wyourname,
+  runs the industrial version: DRM as a service, encrypted `.so` loaders plus a
+  C2 server that hands out the decryption key per machine. The other authors rent
+  it so their scripts can't just be lifted straight off GitHub. That tier is the
+  one that actually stopped me. At least this is what I think is happening.
 - **The plumbing** — Qinglong to run everything, plus a from-scratch clone called
   NiuPanel, obfuscators to hide the scripts, a shared deobfuscator to unhide them,
   OCR services to solve CAPTCHAs, and shared device-ID pools so every bot looks like
@@ -91,10 +90,10 @@ and the more it looked like an actual supply chain. Roughly, it stacks up like t
 - **Cashout** — points become vouchers become cash, resold on Xianyu or Pinduoduo, or
   lottery wins paid straight out to Alipay.
 
-The whole thing is really just one pipeline: scripts -> Qinglong runs them on a
-schedule -> they hammer the target apps -> points and coupons -> resold or
-cashed out -> a WXPusher notification pings the operator to say the money
-landed. Distribution sits over the top of all of it: GitHub, Telegram, QQ
+The whole thing is really just one pipeline: the scripts -> Qinglong runs
+them on a schedule -> they hammer the target apps -> points and coupons ->
+resold or cashed out -> a WXPusher notification pings the operator to say the
+money landed. Distribution sits over the top of all of it: GitHub, Telegram, QQ
 groups, and a marketplace at script.345yun.cn.
 
 And here's the bit that made me really worried, and realised that this really
@@ -112,17 +111,21 @@ you and POSTs a fingerprint of your machine to a box in Shanghai first, so I'd b
 handing my own setup straight to them. So I mapped 49 of them and decrypted
 exactly... none. Everything I did manage to crack is the older, weaker tier.
 
-Over the next five posts I'll pull each layer apart, so stay tuned for:
+Over the next few posts I'll pull each layer apart, so stay tuned for:
 
-1. [**The DRM**]({% post_url 2026-06-23-the-wool-drm %}): how wyourname's encrypted `.so` loaders and C2 actually work,
-   and how far I got pulling them apart.
-2. **Farming the farmers**: smallfawn's JD.com login tool, quietly wired to rob
+1. **[The DRM, part 1]({% post_url 2026-06-23-the-wool-drm %})**: wyourname's
+   old Cython loader, and how I reversed it end to end. The key was baked into
+   the binary, so it protected nothing.
+2. **[The DRM, part 2]({% post_url 2026-06-23-the-great-rust-wall %})**: the
+   current Rust tier, where the key lives on a C2 and never on your machine, and
+   how far I got without ever breaking it.
+3. **Farming the farmers**: smallfawn's JD.com login tool, quietly wired to rob
    the people who buy it.
-3. **The civic angle**: how government, civic, and state-media apps got dragged
+4. **The civic angle**: how government, civic, and state-media apps got dragged
    into all this.
-4. **The attack mechanics**: the handful of tricks that show up again and again
+5. **The attack mechanics**: the handful of tricks that show up again and again
    across 60+ platforms.
-5. **The cast**: the 16 actors, and how I mapped the whole bloody thing from
+6. **The cast**: the 16 actors, and how I mapped the whole bloody thing from
    one random repo.
 
 All of it was read-only, I didn't farm a single account or log into anything,
