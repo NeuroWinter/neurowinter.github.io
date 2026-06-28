@@ -119,8 +119,8 @@ Over the next few posts I'll pull each layer apart, so stay tuned for:
 2. **[The DRM, part 2]({% post_url 2026-06-23-the-great-rust-wall %})**: the
    current Rust tier, where the key lives on a C2 and never on your machine, and
    how far I got without ever breaking it.
-3. **Farming the farmers**: smallfawn's JD.com login tool, quietly wired to rob
-   the people who buy it.
+3. **[Farming the farmers]({% post_url 2026-06-29-farming-the-farmers %})**:
+   smallfawn's JD.com login tool, quietly wired to rob the people who buy it.
 4. **The civic angle**: how government, civic, and state-media apps got dragged
    into all this.
 5. **The attack mechanics**: the handful of tricks that show up again and again
