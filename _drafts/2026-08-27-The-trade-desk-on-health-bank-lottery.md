@@ -117,12 +117,14 @@ for New Zealand law. That does not prove no notice was given elsewhere. It shows
 that, if the collection is governed by a New Zealand notice, the auction transaction 
 itself carries no visible representation of it.
 
-Programmatic ad tech is indirect collection by construction. A persistent ID
-reaches these brokers *from the page*, not from *you*. The OPC's guidance puts
-the duty on the indirect collector, and says that where there's a chain of
-disclosure and collection, every agency in that chain carries its own
-obligation. The Trade Desk handing its ID to Xandr and taking Xandr's back is a
-chain. Neither of them has ever shown itself to me.
+Programmatic ad tech appears to involve indirect collection by design. The request 
+comes from the visitor’s browser, but the collection is initiated and populated by the 
+publisher’s advertising stack rather than information the visitor knowingly supplies 
+to the broker. Whether that makes the collection “indirect” for the purposes of IPP 3A 
+has not yet been tested. The OPC's guidance puts the duty on the indirect collector, 
+and says that where there's a chain of disclosure and collection, every agency in that 
+chain carries its own obligation. The Trade Desk handing its ID to Xandr and taking 
+Xandr's back is a chain. Neither of them has ever shown itself to me.
 
 One line in the OPC's guidance is hard to read any other way. There's an
 exception for collections that wouldn't prejudice the person's interests, and
