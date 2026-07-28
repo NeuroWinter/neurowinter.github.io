@@ -21,7 +21,7 @@ Reported vulnerabilities with published advisories.
 | CVE-2026-27965 | Vitess vtbackup | OS command injection → RCE | 8.4 High | [GHSA-8g8j-r87h-p36x](https://github.com/vitessio/vitess/security/advisories/GHSA-8g8j-r87h-p36x) |
 | CVE-2026-27969 | Vitess vtbackup | Path traversal → arbitrary file write | 9.3 Critical | [GHSA-r492-hjgh-c9gw](https://github.com/vitessio/vitess/security/advisories/GHSA-r492-hjgh-c9gw) |
 | CVE-2025-63701 | Advantech TP-3250 printer driver | Heap corruption via DocumentPropertiesW | 6.8 Medium | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2025-63701) |
-| — | Advantech TP-3250 printer driver | Heap corruption via monochrome blit (DrvRender) | — | advisory pending |
+| CVE-2025-63702 | Advantech TP-3250 printer driver | Heap corruption via monochrome blit (DrvRender) | — | advisory pending |
 
 Pending disclosure: DragonflyDB Issues (reported May 2026).
 
