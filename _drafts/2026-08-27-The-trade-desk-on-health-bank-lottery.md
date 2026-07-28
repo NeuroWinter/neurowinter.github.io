@@ -57,11 +57,12 @@ cross-site identifier from six of the ten sensitive New Zealand sites I checked:
 
 An identifier on its own is just a random string assigned to you. It starts
 mattering when the same company receives the string *and* the page it arrived
-on, because then it can write a row: *this identifier belongs to someone on a
-health portal.* On `managemyhealth`, The Trade Desk got exactly that pairing.
+on, because then it can write a row: *this identifier was observed visiting a 
+patient-portal domain* On `managemyhealth`, The Trade Desk got exactly that pairing.
 These are firms that see you across most of the web, so the visit doesn't sit
-alone. *Health-portal user* becomes an attribute on the same profile built from
-everywhere else you go. That is what the design is for: on their side, one value
+alone. A visit to a patient-portal domain becomes context that can be attached 
+to the profile, potentially supporting a health-related inference on the same profile 
+built from everywhere else you go. That is what the design is for: on their side, one value
 arriving from a patient portal and again from `mylotto` is a single profile
 carrying both facts.
 
@@ -120,7 +121,7 @@ the guidance gives an example of when it does *not* apply: collecting data to
 build profiles of individuals for targeted advertising.
 
 Across the whole corpus, **77 of 104 publishers** send at least one persistent
-identifier to a third party. IPP 3A has been in force for under three months. As
+identifier to a third party. IPP 3A only came into force on 1 May 2026. As
 far as I can find, nobody had measured the NZ surface against it.
 
 ## The worked example: Temu is running the matching hub
