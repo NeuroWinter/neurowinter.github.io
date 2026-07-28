@@ -19,16 +19,19 @@ of the blame for what I did with it.
 A short primer, because the vocabulary is genuinely awful. When a page loads an
 ad slot it does not load an ad. It runs an auction, in the few hundred
 milliseconds before you see anything, and every bidder is software. The slots
-are called **inventory** ie the different ad locations on the page. A **supply-side platform** works for the publisher and
-sells inventory. A **demand-side platform**, or DSP, works for the advertiser
-and buys it.
+are called **inventory** ie the different ad locations on the page. A
+**supply-side platform** works for the publisher and sells inventory. A
+**demand-side platform**, or DSP, works for the advertiser and buys it.
 
-That naming is the worst part of the field, so it is worth stating clearly (or attempt to): the
-advertiser is the one *demanding* inventory, so the firm bidding on the
-advertiser's behalf is the **demand side** platform and is also called
-**buy side**. Same thing. I use buy-side below because it is the clearer word
-for what they are: buyers of ad locations. And for an auction to be worth running, the buyers
-have to know who they are bidding on. That is what the identifiers are for. The more info the have the better it is for them. The advertisers will know they type of person you are the sites you visit your location etc etc. 
+That naming is the worst part of the field, so it is worth stating clearly (or
+attempt to): the advertiser is the one *demanding* inventory, so the firm
+bidding on the advertiser's behalf is the **demand side** platform and is also
+called **buy side**. Same thing. I use buy-side below because it is the clearer
+word for what they are: buyers of ad locations. And for an auction to be worth
+running, the buyers have to know who they are bidding on. That is what the
+identifiers are for. The more info the have the better it is for them. The
+advertisers will know they type of person you are the sites you visit your
+location etc etc.
 
 I loaded New Zealand's most visited sites in a real browser and recorded every
 identifier handed to every third party, with full provenance back to the raw
@@ -37,7 +40,8 @@ request. Opening `1news.co.nz` introduces you to 122 distinct companies.
 them you chose.
 
 I expect a news site to load a hundred advertisers' worth of code. That is what
-a free news site is, and it is bad enough. The sites below are the ones that surprised me.
+a free news site is, and it is bad enough. The sites below are the ones that
+surprised me.
 
 ## The same two ad brokers are on the sites that should know better
 
@@ -57,14 +61,14 @@ cross-site identifier from six of the ten sensitive New Zealand sites I checked:
 
 An identifier on its own is just a random string assigned to you. It starts
 mattering when the same company receives the string *and* the page it arrived
-on, because then it can write a row: *this identifier was observed visiting a 
-patient-portal domain* On `managemyhealth`, The Trade Desk got exactly that pairing.
-These are firms that see you across most of the web, so the visit doesn't sit
-alone. A visit to a patient-portal domain becomes context that can be attached 
-to the profile, potentially supporting a health-related inference on the same profile 
-built from everywhere else you go. That is what the design is for: on their side, one value
-arriving from a patient portal and again from `mylotto` is a single profile
-carrying both facts.
+on, because then it can write a row: *this identifier was observed visiting a
+patient-portal domain*. On `managemyhealth`, The Trade Desk got exactly that
+pairing. These are firms that see you across most of the web, so the visit
+doesn't sit alone. A visit to a patient-portal domain becomes context that can
+be attached to the profile, potentially supporting a health-related inference on
+the same profile built from everywhere else you go. That is what the design is
+for: on their side, one value arriving from a patient portal and again from
+`mylotto` is a single profile carrying both facts.
 
 And the two brokers don't just receive the identifier: they reconcile it with
 each other. Captured mid-handshake on the health portal, The Trade Desk hands its
@@ -86,18 +90,19 @@ pages with no account, and a crawler has no diagnosis to leak and no lottery
 ticket. That doesn't defuse it: the sensitive fact isn't the page, it's the
 **domain**. And on my cold profile the `ttd_tdid` was a fresh value on each site,
 so I *cannot* show the same person linked across the health portal and the bank
-from this data. A fresh browser is the one
-case where that identifier *doesn't* persist. For a real visitor carrying a Trade
-Desk cookie, a cross-site identifier is exactly what it is designed to be. What
-happens behind a login, where a real patient's activity lives, is worse and is
-where a browser can't follow.
+from this data. A fresh browser is the one case where that identifier *doesn't*
+persist. For a real visitor carrying a Trade Desk cookie, a cross-site identifier
+is exactly what it is designed to be. What happens behind a login, where a real
+patient's activity lives, is worse and is where a browser can't follow.
 
 On consent: these sends carry `gdpr=0` (an assertion that GDPR does not apply,
 which for a New Zealander is correct) and an empty consent string. There is no
 New Zealand signal in the request at all, because the ad-tech consent vocabulary
 has no concept of New Zealand law. A NZ reader is described to the market in the
 language of a regime that doesn't cover them, and no interaction of theirs governs
-any of it.
+any of it. That doesn't prove nobody was told anything. It shows that if a New
+Zealand notice governs this collection, the auction transaction carries no sign
+of it.
 
 This is where New Zealand's **IPP 3A** comes in, and it's worth being precise
 about which principle does what. IPP 2 is the one that says collect personal
@@ -108,23 +113,14 @@ them, you have to take reasonable steps to make them aware of it. What you have
 to tell them is spelled out: that you collected it, why, who else gets it, your
 name and address, and how they can access and correct it.
 
-The browser capture contains one clue about how the advertising ecosystem thinks 
-about that problem. These requests carry gdpr=0, correctly asserting that GDPR does 
-not apply to this New Zealand visitor, alongside an empty consent string. Nothing 
-in the captured transaction records a New Zealand-specific notice or choice state: 
-the ad-tech protocol has vocabulary for European and US privacy regimes, but none 
-for New Zealand law. That does not prove no notice was given elsewhere. It shows 
-that, if the collection is governed by a New Zealand notice, the auction transaction 
-itself carries no visible representation of it.
-
-Programmatic ad tech appears to involve indirect collection by design. The request 
-comes from the visitor’s browser, but the collection is initiated and populated by the 
-publisher’s advertising stack rather than information the visitor knowingly supplies 
-to the broker. Whether that makes the collection “indirect” for the purposes of IPP 3A 
-has not yet been tested. The OPC's guidance puts the duty on the indirect collector, 
-and says that where there's a chain of disclosure and collection, every agency in that 
-chain carries its own obligation. The Trade Desk handing its ID to Xandr and taking 
-Xandr's back is a chain. Neither of them has ever shown itself to me.
+Programmatic ad tech looks like indirect collection by design. The request leaves
+your browser, but nothing in it is something you handed the broker: the
+publisher's ad stack builds it and fires it. Whether that counts as indirect
+collection for the purposes of IPP 3A hasn't been tested. If it does, the OPC's
+guidance puts the duty on the indirect collector, and says that where there's a
+chain of disclosure and collection, every agency in that chain carries its own
+obligation. The Trade Desk handing its ID to Xandr and taking Xandr's back is a
+chain. Neither of them has ever shown itself to me.
 
 One line in the OPC's guidance is hard to read any other way. There's an
 exception for collections that wouldn't prejudice the person's interests, and
@@ -132,8 +128,8 @@ the guidance gives an example of when it does *not* apply: collecting data to
 build profiles of individuals for targeted advertising.
 
 Across the whole corpus, **77 of 104 publishers** send at least one persistent
-identifier to a third party. IPP 3A only came into force on 1 May 2026. As
-far as I can find, nobody had measured the NZ surface against it.
+identifier to a third party. IPP 3A only came into force on 1 May 2026. As far
+as I can find, nobody had measured the NZ surface against it.
 
 ## The worked example: Temu is running the matching hub
 
@@ -151,22 +147,26 @@ per partner, receiving IDs from Google AdX, Smaato and Outbrain and redirecting
 onward to sync them. Consent fields present and blank.
 
 The sensational version is "Temu tracks one reader across nine sites." I couldn't
-make it hold up with my test bench. The `adx_uid` is a different value on every site (a per-match
-token, not a stable ID), and the only cookie Temu sets is Cloudflare's
-bot-detection token, non-identifying by design, on fresh and warmed profiles
-alike. So it stays here: **Temu runs the matching plumbing, consent empty, on nine
-major NZ sites; whether it links that server-side, a browser can't see.** I'm
-leaving the failed escalation in because the finding is more solid for it. However, I think if the test bench had browsed to more sites, maybe even signed into to temu it might have used that cookie. 
+make it hold up with my test bench. The `adx_uid` is a different value on every
+site (a per-match token, not a stable ID), and the only cookie Temu sets is
+Cloudflare's bot-detection token, non-identifying by design, on fresh and warmed
+profiles alike. So it stays here: **Temu runs the matching plumbing, consent
+empty, on nine major NZ sites; whether it links that server-side, a browser can't
+see.** I'm leaving the failed escalation in because the finding is more solid for
+it. However, I think if the test bench had browsed to more sites, maybe even
+signed into to temu it might have used that cookie.
 
 ## Why you should trust the numbers: the cold browser lies
 
 Almost every measurement of web tracking runs on a **fresh** browser (clean, no
-history, no past sites logged into etc) because it's reproducible. But nobody browses like that. So I ran every site
-twice: once fresh, once from a **warmed** profile carrying history, the way a real
-browser is. However this was all just generated and not from "real" browsing. 
+history, no past sites logged into etc) because it's reproducible. But nobody
+browses like that. So I ran every site twice: once fresh, once from a **warmed**
+profile carrying history, the way a real browser is. However this was all just
+generated and not from "real" browsing.
 
-I expected the warmed browser to leak more. But nope it was the opposite. Same 95 publishers, matched
-across both arms, counting requests on pages that appeared in both runs:
+I expected the warmed browser to leak more. But nope it was the opposite. Same 95
+publishers, matched across both arms, counting requests on pages that appeared in
+both runs:
 
 | Metric                      |  Fresh | Warmed | Change |
 | --------------------------- | -----: | -----: | -----: |
@@ -226,11 +226,10 @@ lawful basis I can't observe. Two defences in particular are open and I can't
 close either from a browser: whether a pseudonymous ad ID is personal
 information about an identifiable individual at all, and whether notification is
 reasonably practicable for an agency that holds no contact details for you.
-What I'm reporting is a mechanism and its reach:
-buy side ad brokers collecting persistent identifiers from New Zealand's health,
-banking, government and education sites, measured against the principle that
-applies. Someone with more authority than a browser and a weekend should look at
-the rest.
+What I'm reporting is a mechanism and its reach: buy side ad brokers collecting
+persistent identifiers from New Zealand's health, banking, government and
+education sites, measured against the principle that applies. Someone with more
+authority than a browser and a weekend should look at the rest.
 
 Every number in this post rederives from the captured data. Each observation is
 stored content addressed with its raw request, so `77 of 104`, the buy side table,
