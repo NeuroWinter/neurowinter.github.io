@@ -2,7 +2,19 @@
 title: "The Trade Desk is on your health portal, your bank, and the lottery"
 heading: "The Trade Desk is on your health portal, your bank, and the lottery"
 category: Security
-description: Six of ten sensitive New Zealand sites hand a persistent cross-site identifier to two buy-side ad brokers, measured against IPP 3A.
+description: Loaded New Zealand's most visited sites in a real browser and logged every identifier handed to a third party. Two ad brokers with no consumer product turned up on a patient portal, a bank, the national lottery and a city council. Here is what that looks like on the wire, and what IPP 3A has to say about it.
+---
+
+## TLDR:
+
+- Two buy-side ad brokers, **The Trade Desk** and **Xandr**, each receive a persistent cross-site identifier from **six of the ten** sensitive New Zealand sites I checked: a patient portal, a bank, the national lottery, a city council and two universities.
+- On `managemyhealth.co.nz` the two of them swap identifiers with each other mid page. The cookie match request is in the post.
+- Across the whole corpus, **77 of 104 publishers** send at least one persistent identifier to a third party.
+- Every one of those requests carries `gdpr=0` and an empty consent string. The ad-tech consent vocabulary has no concept of New Zealand law at all, so no interaction of a NZ reader governs any of it.
+- **IPP 3A came into force on 1 May 2026.** It requires an agency collecting your personal information from a source other than you to take reasonable steps to tell you who they are and what they took. As far as I can find, nobody had measured the NZ surface against it.
+- `temu.com` runs cookie match pixels on nine major NZ sites. I could not show it links them server side, and I have left that failed escalation in the post.
+- **This is not a breach finding.** Every party named here may have a lawful basis I cannot observe from a browser.
+
 ---
 
 You think you visited one website. You met 122 companies.
@@ -11,10 +23,9 @@ I went looking because of a talk. At BSides Brisbane,
 [D8RH8R](https://www.linkedin.com/in/ryan-williams-4068351b8/) took apart SS7
 signalling firewalls: seven ways a legal-but-unusual BER encoding makes the
 firewall and the network element disagree about what a message says, so the
-firewall fails to read the field it is supposed to be policing and passes the
-query through. He closed by saying that was all old tech, and the interesting
-unexplored surface now is ad tech. He gets the credit for the direction and none
-of the blame for what I did with it.
+firewall passes a query it should have blocked. He closed by saying that was all
+old tech, and the interesting unexplored surface now is ad tech. He gets the
+credit for the direction and none of the blame for what I did with it.
 
 A short primer, because the vocabulary is genuinely awful. When a page loads an
 ad slot it does not load an ad. It runs an auction, in the few hundred
@@ -64,11 +75,18 @@ mattering when the same company receives the string *and* the page it arrived
 on, because then it can write a row: *this identifier was observed visiting a
 patient-portal domain*. On `managemyhealth`, The Trade Desk got exactly that
 pairing. These are firms that see you across most of the web, so the visit
+<<<<<<< HEAD
 doesn't sit alone. A visit to a patient-portal domain becomes context that can
 be attached to the profile, potentially supporting a health-related inference on
 the same profile built from everywhere else you go. That is what the design is
 for: on their side, one value arriving from a patient portal and again from
 `mylotto` is a single profile carrying both facts.
+=======
+doesn't sit alone. That is what the design is for: on their side, one value
+arriving from a patient portal and again from `mylotto` is a single profile
+carrying both, which is the kind of context that supports a health-related
+inference.
+>>>>>>> 14e3d4a (updated - removed test bench stuff)
 
 And the two brokers don't just receive the identifier: they reconcile it with
 each other. Captured mid-handshake on the health portal, The Trade Desk hands its
@@ -94,6 +112,7 @@ from this data. A fresh browser is the one case where that identifier *doesn't*
 persist. For a real visitor carrying a Trade Desk cookie, a cross-site identifier
 is exactly what it is designed to be. What happens behind a login, where a real
 patient's activity lives, is worse and is where a browser can't follow.
+<<<<<<< HEAD
 
 On consent: these sends carry `gdpr=0` (an assertion that GDPR does not apply,
 which for a New Zealander is correct) and an empty consent string. There is no
@@ -130,6 +149,8 @@ build profiles of individuals for targeted advertising.
 Across the whole corpus, **77 of 104 publishers** send at least one persistent
 identifier to a third party. IPP 3A only came into force on 1 May 2026. As far
 as I can find, nobody had measured the NZ surface against it.
+=======
+>>>>>>> 14e3d4a (updated - removed test bench stuff)
 
 ## The worked example: Temu is running the matching hub
 
@@ -156,8 +177,9 @@ see.** I'm leaving the failed escalation in because the finding is more solid fo
 it. However, I think if the test bench had browsed to more sites, maybe even
 signed into to temu it might have used that cookie.
 
-## Why you should trust the numbers: the cold browser lies
+## The law it runs into
 
+<<<<<<< HEAD
 Almost every measurement of web tracking runs on a **fresh** browser (clean, no
 history, no past sites logged into etc) because it's reproducible. But nobody
 browses like that. So I ran every site twice: once fresh, once from a **warmed**
@@ -167,19 +189,41 @@ generated and not from "real" browsing.
 I expected the warmed browser to leak more. But nope it was the opposite. Same 95
 publishers, matched across both arms, counting requests on pages that appeared in
 both runs:
+=======
+On consent: these sends carry `gdpr=0` (an assertion that GDPR does not apply,
+which for a New Zealander is correct) and an empty consent string. There is no
+New Zealand signal in the request at all, because the ad-tech consent vocabulary
+has no concept of New Zealand law. A NZ reader is described to the market in the
+language of a regime that doesn't cover them, and no interaction of theirs governs
+any of it. That doesn't prove nobody was told anything. It shows that if a New
+Zealand notice governs this collection, the auction transaction carries no sign
+of it.
 
-| Metric                      |  Fresh | Warmed | Change |
-| --------------------------- | -----: | -----: | -----: |
-| Identifier-bearing requests | 27,163 | 19,999 | **−26%** |
-| Distinct recipients         |    714 |    616 |   −14% |
-| Page-URL disclosures        | 14,726 | 14,647 |  −0.5% |
+This is where New Zealand's **IPP 3A** comes in, and it's worth being precise
+about which principle does what. IPP 2 is the one that says collect personal
+information from the person concerned, unless an exception applies. IPP 3A is
+new and it points the other way: it came into force on 1 May 2026, and it says
+that if you collect someone's personal information from a source other than
+them, you have to take reasonable steps to make them aware of it. What you have
+to tell them is spelled out: that you collected it, why, who else gets it, your
+name and address, and how they can access and correct it.
+>>>>>>> 14e3d4a (updated - removed test bench stuff)
 
-That last row is the control, and it's the one that matters. *What you're reading*
-went out at essentially the same rate on both arms, while identifier traffic fell
-a quarter. The warmed browser loaded the same pages and reported the same
-content; it isn't that it did less. It did the same amount of everything except
-identity.
+Programmatic ad tech looks like indirect collection by design. The request leaves
+your browser, but nothing in it is something you handed the broker: the
+publisher's ad stack builds it and fires it. Whether that counts as indirect
+collection for the purposes of IPP 3A hasn't been tested. If it does, the OPC's
+guidance puts the duty on the indirect collector, and says that where there's a
+chain of disclosure and collection, every agency in that chain carries its own
+obligation. The Trade Desk handing its ID to Xandr and taking Xandr's back is a
+chain. Neither of them has ever shown itself to me.
 
+One line in the OPC's guidance is hard to read any other way. There's an
+exception for collections that wouldn't prejudice the person's interests, and
+the guidance gives an example of when it does *not* apply: collecting data to
+build profiles of individuals for targeted advertising.
+
+<<<<<<< HEAD
 The cold browser has no cookie sync matches yet, so it runs every handshake from
 scratch on every load: over counting exactly the sync traffic a real browser
 already completed. I ran a second night with the arms reversed to rule out
@@ -220,6 +264,14 @@ One synthetic reader, no accounts, one country, two nights. The replication kill
 the *time of day* confound; it doesn't prove a logged in user or another country
 looks the same.
 
+=======
+Across the whole corpus, **77 of 104 publishers** send at least one persistent
+identifier to a third party. As far as I can find, nobody had measured the NZ
+surface against it.
+
+## Limits
+
+>>>>>>> 14e3d4a (updated - removed test bench stuff)
 Not a breach finding. I have no view of notice given elsewhere, processor
 contracts, prior authorisation, or IPP 3A's exceptions. Every party may have a
 lawful basis I can't observe. Two defences in particular are open and I can't
