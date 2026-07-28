@@ -108,6 +108,15 @@ them, you have to take reasonable steps to make them aware of it. What you have
 to tell them is spelled out: that you collected it, why, who else gets it, your
 name and address, and how they can access and correct it.
 
+The browser capture contains one clue about how the advertising ecosystem thinks 
+about that problem. These requests carry gdpr=0, correctly asserting that GDPR does 
+not apply to this New Zealand visitor, alongside an empty consent string. Nothing 
+in the captured transaction records a New Zealand-specific notice or choice state: 
+the ad-tech protocol has vocabulary for European and US privacy regimes, but none 
+for New Zealand law. That does not prove no notice was given elsewhere. It shows 
+that, if the collection is governed by a New Zealand notice, the auction transaction 
+itself carries no visible representation of it.
+
 Programmatic ad tech is indirect collection by construction. A persistent ID
 reaches these brokers *from the page*, not from *you*. The OPC's guidance puts
 the duty on the indirect collector, and says that where there's a chain of
