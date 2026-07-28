@@ -3,11 +3,13 @@ layout: post
 category: Security
 title: "Advantech printer driver: heap corruption via Monochrome blit function (DrvRender_x64_ADVANTECH.dll)"
 heading: "Advantech printer driver: heap corruption via Monochrome blit function (DrvRender_x64_ADVANTECH.dll)"
-description: "Heap corruption in the Advantech TP-3250 printer driver due to 32-bit size arithmetic and unvalidated geometry in a CopyBits-style routine; reliable crash and likely local Privilege Escalation."
+description: "CVE-2025-63702 - Heap corruption in the Advantech TP-3250 printer driver due to 32-bit size arithmetic and unvalidated geometry in a CopyBits-style routine; reliable crash and potential local privilege escalation."
 ---
 
 
 ## TLDR:
+
+- **CVE ID**: CVE-2025-63702
 
 - The driver’s “monochrome blit” pipeline (8bpp → 1bpp), reachable via a DRVFN
 entry in DrvRender_x64_ADVANTECH.dll, works out the 1-bpp buffer size with
