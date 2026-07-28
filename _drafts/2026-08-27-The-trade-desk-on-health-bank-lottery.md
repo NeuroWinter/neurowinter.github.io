@@ -16,37 +16,58 @@ query through. He closed by saying that was all old tech, and the interesting
 unexplored surface now is ad tech. He gets the credit for the direction and none
 of the blame for what I did with it.
 
+A short primer, because the vocabulary is genuinely awful. When a page loads an
+ad slot it does not load an ad. It runs an auction, in the few hundred
+milliseconds before you see anything, and every bidder is software. The slots
+are called **inventory**: the individual ad locations on the page. A
+**supply-side platform** works for the publisher and sells inventory. A
+**demand-side platform**, or DSP, works for the advertiser and buys it.
+
+That naming is the worst part of the field, so it is worth trying to state it
+plainly: the advertiser is the one *demanding* inventory, so the firm bidding on
+the advertiser's behalf is the **demand-side** platform and is also called
+**buy-side**. Same thing. I use buy-side below because it is the clearer word
+for what they are, which is buyers of ad locations. And for an auction to be
+worth running, the buyers have to know who they are bidding on. That is what the
+identifiers are for. The more they know, the more the impression is worth to
+them: the kind of person you are, the sites you visit, your rough location,
+whatever else has already been attached to you.
+
 I loaded New Zealand's most-visited sites in a real browser and recorded every
 identifier handed to every third party, with full provenance back to the raw
 request. Opening `1news.co.nz` introduces you to 122 distinct companies.
 `nzherald`, 121. `stuff`, 103. Most of them you have never heard of, and none of
 them you chose.
 
-That is the ordinary web and it is bad enough. This post is about the part that
-isn't ordinary.
+I expect a news site to load a hundred advertisers' worth of code. That is what
+a free news site is, and it is bad enough. The sites below are the ones that
+surprised me.
 
 ## The same two ad brokers are on the sites that should know better
 
-**The Trade Desk** and **Xandr** are demand-side platforms. Their entire business
-is buying advertising inventory. They have no product for you, no account you
-hold, no reason to know who you are. And each of them receives a persistent
+**The Trade Desk** and **Xandr** are buy-side platforms. Their entire business
+is bidding on ad slots for advertisers. They have no product for you, no account
+you hold, no reason to know who you are. And each of them receives a persistent
 cross-site identifier from six of the ten sensitive New Zealand sites I checked:
 
-| Site                    | What it is        | Buy-side firm receiving a persistent ID |
-| ----------------------- | ----------------- | --------------------------------------- |
-| `managemyhealth.co.nz`  | patient portal    | The Trade Desk, Xandr                   |
-| `mylotto.co.nz`         | national lottery  | The Trade Desk, Xandr                   |
-| `westpac.co.nz`         | bank              | The Trade Desk, Xandr                   |
-| `ccc.govt.nz`           | city council      | The Trade Desk, Xandr                   |
-| `waikato.ac.nz`         | university        | The Trade Desk, Xandr                   |
-| `auckland.ac.nz`        | university        | The Trade Desk, Xandr                   |
+| Site                   | What it is       | Buy-side firm receiving a persistent ID |
+| ---------------------- | ---------------- | --------------------------------------- |
+| `managemyhealth.co.nz` | patient portal   | The Trade Desk, Xandr                   |
+| `mylotto.co.nz`        | national lottery | The Trade Desk, Xandr                   |
+| `westpac.co.nz`        | bank             | The Trade Desk, Xandr                   |
+| `ccc.govt.nz`          | city council     | The Trade Desk, Xandr                   |
+| `waikato.ac.nz`        | university       | The Trade Desk, Xandr                   |
+| `auckland.ac.nz`       | university       | The Trade Desk, Xandr                   |
 
-An identifier on its own is just a name. It matters when the same company
-receives the name *and* the page it arrived on, because then it can write a row:
-*this identifier belongs to someone on a health portal.* On `managemyhealth`, The
-Trade Desk got exactly that pairing. These are firms that see you across most of
-the web, so the visit doesn't sit alone. *Health-portal user* becomes an
-attribute on the same profile built from everywhere else you go.
+An identifier on its own is just a random string assigned to you. It starts
+mattering when the same company receives the string *and* the page it arrived
+on, because then it can write a row: *this identifier belongs to someone on a
+health portal.* On `managemyhealth`, The Trade Desk got exactly that pairing.
+These are firms that see you across most of the web, so the visit doesn't sit
+alone. *Health-portal user* becomes an attribute on the same profile built from
+everywhere else you go. That is what the design is for: on their side, one value
+arriving from a patient portal and again from `mylotto` is a single profile
+carrying both facts.
 
 And the two brokers don't just receive the identifier: they reconcile it with
 each other. Captured mid-handshake on the health portal, The Trade Desk hands its
@@ -58,18 +79,21 @@ https://match.adsrvr.org/track/cmf/appnexus?ttd=1&anid=$UID&ttd_tdid=b0171955-c0
 
 `match.adsrvr.org` is The Trade Desk; `appnexus` is Xandr's former name; `cmf` is
 cookie-match-feed. The identifier is `ttd_tdid`: The Trade Desk's *cross-site*
-identifier, the one built to follow you everywhere, not an auction-scoped token.
+identifier, the one built to follow you everywhere. That word is doing the work.
+An auction-scoped token is a receipt for one ad sale and is meaningless an hour
+later. A cross-site identifier is a name, and it is built to still mean you
+tomorrow, on a different site.
 
-Be precise about the limits, because they matter. I visited public pages with no
-account, and a crawler has no diagnosis and no bet to leak. That doesn't defuse
-it: the sensitive fact isn't the page, it's the **domain**. And on my cold
-profile the `ttd_tdid` was a fresh value on each site, so I *cannot* show the
-same person linked across the health portal and the bank from this data. But
-that is a floor, not a ceiling: a fresh browser is the one case where that
-identifier *doesn't* persist. For a real visitor carrying a Trade Desk cookie, a
-cross-site identifier is exactly what it is designed to be. What happens behind
-a login, where a real patient's activity lives, is worse and is where a browser
-can't follow.
+I should be honest about the limits here, because they matter. I visited public
+pages with no account, and a crawler has no diagnosis to leak and no lottery
+ticket. That doesn't defuse it: the sensitive fact isn't the page, it's the
+**domain**. And on my cold profile the `ttd_tdid` was a fresh value on each site,
+so I *cannot* show the same person linked across the health portal and the bank
+from this data. But a fresh browser is the one case where that identifier
+*doesn't* persist. For a real visitor carrying a Trade Desk cookie, a cross-site
+identifier is exactly what it is designed to be. What happens behind a login,
+where a real patient's activity lives, is worse and is where a browser can't
+follow.
 
 On consent: these sends carry `gdpr=0` (an assertion that GDPR does not apply,
 which for a New Zealander is correct) and an empty consent string. There is no
@@ -101,22 +125,27 @@ per partner, receiving IDs from Google AdX, Smaato and Outbrain and redirecting
 onward to sync them. Consent fields present and blank.
 
 The sensational version is "Temu tracks one reader across nine sites." I couldn't
-make it stand up. The `adx_uid` is a different value on every site (a per-match
-token, not a stable ID), and the only cookie Temu sets is Cloudflare's
-bot-detection token, non-identifying by design, on fresh and warmed profiles
-alike. So it stays here: **Temu runs the matching plumbing, consent empty, on nine
-major NZ sites; whether it links that server-side, a browser can't see.** I'm
-leaving the failed escalation in because the finding is more solid for it.
+make it hold up with my test bench. The `adx_uid` is a different value on every
+site (a per-match token, not a stable ID), and the only cookie Temu sets is
+Cloudflare's bot-detection token, non-identifying by design, on fresh and warmed
+profiles alike. So it stays here: **Temu runs the matching plumbing, consent
+empty, on nine major NZ sites; whether it links that server-side, a browser can't
+see.** I'm leaving the failed escalation in because the finding is more solid for
+it, and because my bench may simply be too thin: a profile with more browsing
+behind it, or one signed in to Temu, might get something real set where mine only
+ever got the bot token.
 
 ## Why you should trust the numbers: the cold browser lies
 
-Almost every measurement of web tracking runs on a **fresh** browser (clean, no
-history) because it's reproducible. Nobody browses like that. So I ran every site
-twice: once fresh, once from a **warmed** profile carrying history, the way a real
-browser is.
+Almost every measurement of web tracking runs on a **fresh** browser: clean, no
+history, nothing signed in, because it's reproducible. But nobody browses like
+that. So I ran every site twice, once fresh and once from a **warmed** profile
+carrying history, the way a real browser is. The warmed profile is still
+synthetic, to be clear. It is history I generated, not a real person's browsing.
 
-I expected the warmed browser to leak more. Opposite. Same 95 publishers, matched
-across both arms, counting requests on pages that appeared in both runs:
+I expected the warmed browser to leak more. Nope. The opposite. Same 95
+publishers, matched across both arms, counting requests on pages that appeared in
+both runs:
 
 | Metric                      |  Fresh | Warmed | Change |
 | --------------------------- | -----: | -----: | -----: |
@@ -133,25 +162,42 @@ identity.
 The cold browser has no cookie-sync matches yet, so it runs every handshake from
 scratch on every load: over-counting exactly the sync traffic a real browser
 already completed. I ran a second night with the arms reversed to rule out
-time-of-day; the identifier gap reproduced to within a point (−25.7% one night,
+time-of-day; the identifier gap reproduced to within one point (−25.7% one night,
 −26.4% the other). Counted a different way (every identifier-bearing field in the
 whole run rather than just matched homepages), the same asymmetry holds: identity
 down ~26%, page context down a fraction of that. **A fresh profile over-counts
-sync traffic and under-counts established identity. That is what most privacy
-studies run on.**
+sync traffic and under-counts established identity.**
+
+I am not the first to notice the mechanism, and it would be dishonest to imply
+otherwise. Englehardt and Narayanan flagged it in the
+[1-million-site measurement](https://webtransparency.cs.princeton.edu/webcensus/)
+in 2016: stateful and stateless crawls diverge, and cookie syncing is
+specifically one of the measurements where that divergence is material rather
+than cosmetic. They dealt with it by seeding the profile with prior browsing.
+OpenWPM's default has been stateful ever since, and
+[stateless is the thing you opt into](https://github.com/openwpm/OpenWPM/blob/master/docs/Configuration.md#stateful-vs-stateless-crawls).
+
+So the correction is a decade old. What I haven't found is anyone putting a
+number on it. Applied work still runs stateless routinely, because a clean
+profile per page is cheaper and trivially reproducible:
+[this measurement of Indian news media](https://arxiv.org/pdf/2103.04442) ran
+five stateless crawls across 1,387 URLs, and
+[this one on hyper-partisan sites](https://arxiv.org/pdf/2002.00934) states
+plainly that its persona crawls are stateless. Neither is doing anything wrong.
+But if you count identifier traffic that way, on a corpus like this one, the
+figure is about a quarter high, and now there is at least one measurement of how
+much.
 
 ## Limits
 
 Browser measurement stops at the browser. I see the cookie-match handshake, not
-the server-side table it may populate. Cookie-syncing is built to link somewhere
-I can't look. So for every recipient here, Temu included, I show the plumbing
-exists and can't show what flows through it once it leaves the browser.
+the server-side table it may populate, and cookie-syncing is built to link
+somewhere I can't look. So for every recipient here, Temu included, I show the
+plumbing exists and can't show what flows through it.
 
 One synthetic reader, no accounts, one country, two nights. The replication kills
 the *time-of-day* confound; it doesn't prove a logged-in user or another country
-looks the same. Where I found "no persistent identifier," that's a floor: a
-first-time visitor with no relationship is where linkage is least likely; a
-logged-in user is plausibly worse and invisible to me.
+looks the same.
 
 Not a breach finding. I have no view of notice given elsewhere, processor
 contracts, prior authorisation, or IPP 3A's exceptions. Every party may have a
