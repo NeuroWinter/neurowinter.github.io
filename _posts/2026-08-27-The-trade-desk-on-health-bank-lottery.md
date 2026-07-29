@@ -1,4 +1,6 @@
 ---
+layout: post
+category: Security
 title: "The Trade Desk is on your health portal, your bank, and the lottery"
 heading: "The Trade Desk is on your health portal, your bank, and the lottery"
 category: Security
