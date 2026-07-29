@@ -356,9 +356,7 @@ also all signed the same public receipt.
 ## The other half of the scene: iOS IAP crackers
 
 Two operators run the iOS half on the same substrate but a completely
-different attack surface. The mechanics live in
-[the mechanics post]({% post_url 2026-07-XX-attack-mechanics %}); here
-I just want to say who.
+different attack surface.
 
 **MCdasheng**: ~80 QuantumultX scripts, half rehosted IAP crackers,
 half original farming. Runs a polished BoxJs subscription. Their
